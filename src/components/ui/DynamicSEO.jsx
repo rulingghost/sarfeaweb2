@@ -72,7 +72,7 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+90-212-XXX-XXXX", // Fill with real phone
+            "telephone": "+90-501-571-5767", // Real phone number
             "contactType": "customer service",
             "areaServed": "TR",
             "availableLanguage": ["Turkish", "English", "Arabic"]

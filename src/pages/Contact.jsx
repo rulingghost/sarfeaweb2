@@ -129,7 +129,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                     </div>
                     <div>
                       <p className="text-blue-200 text-sm font-bold uppercase tracking-wider mb-1">{t.contact_page.info.phone}</p>
-                      <p className="font-bold text-xl">+90 544 572 26 34</p>
+                      <p className="font-bold text-xl">+90 501 571 57 67</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-5 group/item">

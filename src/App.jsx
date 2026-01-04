@@ -40,7 +40,7 @@ function App() {
     const saved = localStorage.getItem('language');
     return LANGUAGES.some(l => l.code === saved) ? saved : 'tr';
   });
-  const t = translations[language];
+  const t = translations[language] || translations['tr'];
 
   useEffect(() => {
     localStorage.setItem('language', language);
