@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="description" content="SARFEA: İşletmenize özel CRM ve ERP yazılımları geliştiriyoruz. Dijital dönüşüm ve kurumsal otomasyon çözümlerimizle verimliliği artırın." />
     <meta name="keywords" content="crm programı, erp yazılımı, kurumsal yazılım, dijital dönüşüm, özel yazılım geliştirme, sarfea, yapay zeka crm, bulut tabanlı erp" />
     <meta name="author" content="Sarfea Yazılım Teknolojileri A.Ş." />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#0f172a" />
     
+    <!-- PWA & Mobile App Settings -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SARFEA">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sarfea.com/" />
@@ -29,7 +36,7 @@
     <link rel="apple-touch-icon" href="/logo.png">
     <link rel="canonical" href="https://sarfea.com/" />
   </head>
-  <body>
+  <body class="safe-area-inset">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

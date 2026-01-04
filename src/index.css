@@ -4,10 +4,13 @@
 
 :root {
   color-scheme: light dark;
+  --iphone-safe-bottom: env(safe-area-inset-bottom);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -18,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-
+  overscroll-behavior-y: none; /* Prevents pull-to-refresh app-like feel */
 }
 
 /* Custom Selection */
@@ -40,20 +43,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 5px;
-  border: 2px solid #f8fafc; /* Create padding around scrollbar */
+  border: 2px solid #f8fafc;
 }
 
 .dark ::-webkit-scrollbar-thumb {
   background: #334155;
   border: 2px solid #020617;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
 }
 
 /* Animations */
@@ -67,22 +62,23 @@ body {
   animation: blob 7s infinite;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
+/* Mobile App Styles */
+@media (max-width: 768px) {
+    /* Hide some desktop-only borders and shadows to keep it clean */
+    .glass-card {
+        border-radius: 1.5rem !important;
+    }
+    
+    /* Make buttons feel more like app elements */
+    button {
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.animate-gradient-x {
-  animation: gradient-x 3s ease infinite;
-  background-size: 200% 200%;
+    /* Padding for bottom navigation */
+    body {
+        padding-bottom: calc(70px + var(--iphone-safe-bottom));
+    }
 }
 
 .perspective-1000 {
@@ -106,9 +102,7 @@ body {
   box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Utility to hide cursor on touch devices to prevent touch issues */
-@media (hover: none) and (pointer: coarse) {
-    body {
-        cursor: auto;
-    }
+/* Mobile Pull-to-Refresh Prevention on root but not on content */
+#root {
+    min-height: 100vh;
 }
