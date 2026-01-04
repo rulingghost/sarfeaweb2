@@ -27,7 +27,7 @@ export const SpotlightCard = ({ children, className = "", color = "blue" }) => {
 
   return (
     <div
-      className={`group relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-${color}-500/10 ${className}`}
+      className={`group relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-${color}-500/10 spotlight-card-base ${className}`}
       onMouseMove={handleMouseMove}
     >
       <motion.div

@@ -46,25 +46,32 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* --- Premium Glassmorphism V2 --- */
+/* --- Premium Solid Cards (Şeffaf Olmayan Kutucuklar) --- */
 .glass-v2 {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #ffffff; /* Tamamen Katı Beyaz */
+  border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 
-    0 10px 30px -10px rgba(0, 0, 0, 0.1),
-    inset 0 0 1px 1px rgba(255, 255, 255, 0.5),
-    inset 0 2px 2px rgba(255, 255, 255, 0.4);
+    0 10px 40px -10px rgba(0, 0, 0, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 1);
 }
 
 .dark .glass-v2 {
-  background: rgba(15, 23, 42, 0.5);
+  background: #0f172a; /* Tamamen Katı Koyu Lacivert (Slate 900) */
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 
-    0 10px 30px -10px rgba(0, 0, 0, 0.4),
-    inset 0 0 1px 1px rgba(255, 255, 255, 0.05),
-    inset 0 2px 4px rgba(255, 255, 255, 0.02);
+    0 20px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Spotlight Card Base */
+.spotlight-card-base {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+}
+
+.dark .spotlight-card-base {
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155;
 }
 
 /* --- Bento Grid Utilities --- */
@@ -128,7 +135,7 @@ body {
 
 /* Mobile App Styles */
 @media (max-width: 768px) {
-    .glass-card, .glass-v2 {
+    .glass-card, .glass-v2, .spotlight-card-base {
         border-radius: 1.25rem !important;
     }
     

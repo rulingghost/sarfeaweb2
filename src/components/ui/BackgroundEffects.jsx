@@ -19,38 +19,40 @@ const CODE_SNIPPETS = [
   "new Socket('wss://sarfea.io/live')",
   "crypto.encrypt(data, secret_key)",
   "const [data, setData] = useState(null);",
-  "api.fetch('/v1/analytics/realtime')"
+  "api.fetch('/v1/analytics/realtime')",
+  "export default function App() {",
+  "const [theme, setTheme] = useState('dark');"
 ];
 
 export const BackgroundEffects = () => {
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none transition-colors duration-500 bg-slate-50 dark:bg-slate-950">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none transition-colors duration-500 bg-white dark:bg-slate-950">
       
-      {/* 1. Nokta Matrisi (Dot Matrix) - Kareli Defter Değil, Modern Tech Görünümü */}
+      {/* 1. Nokta Matrisi - Belirgin ve Teknoloji Hissiyatı */}
       <div 
-        className="absolute inset-0 opacity-[0.15] dark:opacity-[0.25]"
+        className="absolute inset-0 opacity-[0.35] dark:opacity-[0.4]"
         style={{
-          backgroundImage: `radial-gradient(#3b82f6 0.5px, transparent 0.5px)`,
-          backgroundSize: '30px 30px',
+          backgroundImage: `radial-gradient(#2563eb 1.5px, transparent 1.5px)`,
+          backgroundSize: '45px 45px',
         }}
       />
       
-      {/* 2. Rastgele Twinkling Noktalar (Daha Fazla ve Canlı) */}
+      {/* 2. Twinkling Noktalar */}
       <div className="absolute inset-0">
-        {[...Array(40)].map((_, i) => (
+        {[...Array(60)].map((_, i) => (
           <motion.div
             key={`dot-${i}`}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
-              opacity: [0, 0.7, 0],
-              scale: [0, 1.2, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 2, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 2 + 1,
               repeat: Infinity,
               delay: Math.random() * 5,
             }}
-            className="absolute w-1 h-1 bg-blue-500 rounded-full blur-[1px]"
+            className="absolute w-2 h-2 bg-blue-600/40 dark:bg-blue-400/50 rounded-full blur-[2px]"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -59,25 +61,28 @@ export const BackgroundEffects = () => {
         ))}
       </div>
 
-      {/* 3. Floating Code Snippets - Ekranın Her Yerinden Geçen Fantom Kodlar */}
-      <div className="absolute inset-0 overflow-hidden opacity-[0.08] dark:opacity-[0.15]">
+      {/* 3. Floating Code Snippets - Sayfa açıldığında heryerde hazır (Negative Delay Tekniği) */}
+      <div className="absolute inset-0 overflow-hidden">
         {CODE_SNIPPETS.map((code, i) => {
-            const randomLeft = Math.floor(Math.random() * 90); // 0-90 arası rastgele yatay pozisyon
-            const randomDuration = 20 + Math.random() * 40; // 20-60 saniye arası rastgele hız
-            const randomDelay = Math.random() * 20; // Rastgele başlangıç gecikmesi
+            const randomLeft = Math.floor(Math.random() * 92);
+            const randomDuration = 25 + Math.random() * 35; 
+            const randomDelay = -(Math.random() * randomDuration); // Negatif delay: Animasyon "geçmişte" başlamış gibi olur (Full ekran kodu sağlar)
             
             return (
                 <motion.div
                 key={`floating-code-${i}`}
-                initial={{ y: "110vh", x: `${randomLeft}vw`, opacity: 0 }}
-                animate={{ y: "-20vh", opacity: [0, 1, 1, 0] }}
+                initial={{ opacity: 0, x: `${randomLeft}vw` }}
+                animate={{ 
+                    y: ["110vh", "-20vh"], 
+                    opacity: [0, 1, 1, 0] 
+                }}
                 transition={{
                     duration: randomDuration,
                     repeat: Infinity,
                     ease: "linear",
                     delay: randomDelay
                 }}
-                className="absolute font-mono text-[10px] md:text-[12px] whitespace-nowrap text-blue-600 dark:text-blue-400 font-medium"
+                className="absolute font-mono text-[13px] md:text-[15px] whitespace-nowrap text-blue-900/10 dark:text-blue-300/15 font-black uppercase tracking-tighter"
                 >
                 {code}
                 </motion.div>
@@ -85,28 +90,23 @@ export const BackgroundEffects = () => {
         })}
       </div>
 
-      {/* 4. Dinamik Renkli Işıklar (Mesh Gradient) */}
+      {/* 4. Mesh Gradient Işıkları */}
       <motion.div
         animate={{
-          x: [0, 100, -50, 0],
-          y: [0, -50, 50, 0],
-          scale: [1, 1.3, 0.8, 1],
+          x: [0, 200, -150, 0],
+          y: [0, -100, 150, 0],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[180px]"
+      />
+      <motion.div
+        animate={{
+          x: [0, -150, 100, 0],
+          y: [0, 150, -100, 0],
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 left-0 w-[70%] h-[70%] bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-[150px]"
+        className="absolute bottom-[-20%] right-[-20%] w-[90%] h-[90%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[180px]"
       />
-      <motion.div
-        animate={{
-          x: [0, -80, 40, 0],
-          y: [0, 60, -40, 0],
-          scale: [1, 0.8, 1.2, 1],
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-0 right-0 w-[60%] h-[60%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[150px]"
-      />
-
-      {/* 5. Subtle Noise Overlay */}
-      <div className="noise-overlay" />
     </div>
   );
 };
