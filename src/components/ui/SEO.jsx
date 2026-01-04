@@ -5,8 +5,8 @@ export const SEO = ({ title, description, keywords, image, url, type = "website"
   const siteTitle = "SARFEA | Dijital Dönüşüm, CRM, ERP & Yazılım Çözümleri";
   const defaultDescription = "Sarfea, işletmeniz için özel CRM, ERP, Mobil Uygulama ve Web Platformları kodlar. Dijital dönüşümde lider yazılım ortağınız.";
   const defaultKeywords = "crm yazılımı, erp sistemleri, dijital dönüşüm, özel yazılım geliştirme, kurumsal yazılım, mobil uygulama yapan firmalar, sarfea, yazılım teknolojileri, bulut tabanlı crm, işletme otomasyonu";
-  const siteUrl = "https://sarfea.com"; // Gerçek domain ile değiştirilmelidir
-  const defaultImage = "https://sarfea.com/og-image.jpg"; // Varsayılan paylaşım görseli
+  const siteUrl = "https://sarfea.com.tr"; // Gerçek domain ile değiştirilmelidir
+  const defaultImage = "https://sarfea.com.tr/og-image.jpg"; // Varsayılan paylaşım görseli
 
   const fullTitle = title ? `${title} | SARFEA` : siteTitle;
   const fullDescription = description || defaultDescription;
@@ -47,7 +47,7 @@ export const SEO = ({ title, description, keywords, image, url, type = "website"
           "@type": "Organization",
           "name": "SARFEA",
           "url": siteUrl,
-          "logo": "https://sarfea.com/logo.png",
+          "logo": "https://sarfea.com.tr/logo.png",
           "description": defaultDescription,
           "sameAs": [
             "https://www.linkedin.com/company/sarfea",

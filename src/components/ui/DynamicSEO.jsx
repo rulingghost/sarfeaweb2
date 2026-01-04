@@ -7,7 +7,7 @@ import { SEO } from './SEO';
  */
 export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
   const seoData = useMemo(() => {
-    const baseUrl = "https://sarfea.com"; // Replace with your actual domain
+    const baseUrl = "https://sarfea.com.tr"; // Replace with your actual domain
     
     // Core keywords used for ranking in trending searches
     const trendingBoost = [

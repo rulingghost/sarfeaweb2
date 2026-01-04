@@ -16,7 +16,7 @@ const CODE_SNIPPETS = [
   "while (true) { inovate(); }",
   "system.integrity > 99.9%",
   "process.env.NODE_ENV === 'production'",
-  "new Socket('wss://sarfea.io/live')",
+  "new Socket('wss://sarfea.com.tr/live')",
   "crypto.encrypt(data, secret_key)",
   "const [data, setData] = useState(null);",
   "api.fetch('/v1/analytics/realtime')",

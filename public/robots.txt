@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://sarfea.com/sitemap.xml
+Sitemap: https://sarfea.com.tr/sitemap.xml
