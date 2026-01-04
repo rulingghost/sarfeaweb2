@@ -23,7 +23,7 @@ export const About = ({ t }) => {
                 alt="Modern Office" 
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-10 z-20">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-6 md:p-10 z-20">
                 <div className="text-white">
                   <div className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-3 shadow-sm">{t.about_page.office.tag}</div>
                   <h3 className="text-3xl font-bold mb-3">{t.about_page.office.location}</h3>

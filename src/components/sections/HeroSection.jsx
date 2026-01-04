@@ -10,7 +10,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <div className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center pt-24 md:pt-20 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden -z-10 bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
         <motion.div style={{ y: y1 }} className="absolute top-20 left-10 w-80 h-80 bg-blue-400/30 dark:bg-blue-600/20 rounded-full blur-[100px] animate-blob mix-blend-multiply dark:mix-blend-soft-light" />
         <motion.div style={{ y: y2 }} className="absolute top-40 right-10 w-96 h-96 bg-purple-400/30 dark:bg-purple-600/20 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-multiply dark:mix-blend-soft-light" />
@@ -34,22 +34,22 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
               {t.hero.tag}
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
               {t.hero.title_prefix} <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 animate-gradient-x">
                 {t.hero.title_suffix}
               </span>
             </h1>
             
-            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
               {t.hero.description}
             </p>
             
-            <div className="flex flex-wrap gap-5">
-              <button onClick={() => navigateTo('contact')} className="px-10 py-4 bg-gradient-to-r from-slate-900 to-indigo-900 dark:from-white dark:to-slate-200 text-white dark:text-slate-900 rounded-2xl font-bold transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 active:scale-95 flex items-center gap-3 group">
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button onClick={() => navigateTo('contact')} className="px-8 md:px-10 py-3.5 md:py-4 bg-gradient-to-r from-slate-900 to-indigo-900 dark:from-white dark:to-slate-200 text-white dark:text-slate-900 rounded-2xl font-bold transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 active:scale-95 flex items-center justify-center gap-3 group">
                 {t.hero.btn_start} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button onClick={onOpenCalculator} className="px-10 py-4 bg-white/80 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white rounded-2xl font-bold transition-all hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 backdrop-blur-sm flex items-center gap-3 group active:scale-95">
+              <button onClick={onOpenCalculator} className="px-8 md:px-10 py-3.5 md:py-4 bg-white/80 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white rounded-2xl font-bold transition-all hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 backdrop-blur-sm flex items-center justify-center gap-3 group active:scale-95">
                 <Calculator size={20} className="text-blue-600 dark:text-blue-400 group-hover:rotate-12 transition-transform"/> {t.hero.btn_scope}
               </button>
             </div>

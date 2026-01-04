@@ -29,7 +29,7 @@ export const Process = ({ t }) => {
               <div className={`flex items-center justify-between mb-24 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0`}>
                 <div className="w-full md:w-5/12 relative">
                    {/* Card Hover Effect Enhanced */}
-                  <SpotlightCard className={`p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border-2 border-slate-100 dark:border-slate-800 relative overflow-hidden transition-all duration-500 hover:border-${config.color}-300 dark:hover:border-${config.color}-800/50`} color={config.color}>
+                  <SpotlightCard className={`p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border-2 border-slate-100 dark:border-slate-800 relative overflow-hidden transition-all duration-500 hover:border-${config.color}-300 dark:hover:border-${config.color}-800/50`} color={config.color}>
                     <div className={`absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity text-${config.color}-600 dark:text-${config.color}-400 transform group-hover:scale-110 duration-500`}>
                       <config.icon size={120} />
                     </div>

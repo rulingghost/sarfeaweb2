@@ -21,7 +21,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  overscroll-behavior-y: none; /* Prevents pull-to-refresh app-like feel */
+  overscroll-behavior-y: none;
+}
+
+/* Global Mobile Font Reductions */
+@layer base {
+  h1 { @apply text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight; }
+  h2 { @apply text-3xl md:text-5xl font-extrabold tracking-tight; }
+  h3 { @apply text-2xl md:text-3xl font-bold; }
+  p { @apply text-base md:text-lg; }
 }
 
 /* Custom Selection */
@@ -64,20 +72,17 @@ body {
 
 /* Mobile App Styles */
 @media (max-width: 768px) {
-    /* Hide some desktop-only borders and shadows to keep it clean */
     .glass-card {
-        border-radius: 1.5rem !important;
+        border-radius: 1.25rem !important;
     }
     
-    /* Make buttons feel more like app elements */
     button {
         -webkit-user-select: none;
         user-select: none;
     }
 
-    /* Padding for bottom navigation */
     body {
-        padding-bottom: calc(70px + var(--iphone-safe-bottom));
+        padding-bottom: calc(85px + var(--iphone-safe-bottom));
     }
 }
 
@@ -102,7 +107,6 @@ body {
   box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Mobile Pull-to-Refresh Prevention on root but not on content */
 #root {
     min-height: 100vh;
 }

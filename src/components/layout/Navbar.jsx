@@ -14,11 +14,11 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-lg shadow-indigo-500/5 py-3 border-b border-slate-200/50 dark:border-slate-800/50 supports-[backdrop-filter]:bg-white/60' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-lg shadow-indigo-500/5 py-3 border-b border-slate-200/50 dark:border-slate-800/50 supports-[backdrop-filter]:bg-white/60' : 'bg-transparent py-4 md:py-6'}`}>
       {isScrolled && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => handleNavClick('home')}>
-          <img src={darkMode ? logoDarkImage : logoImage} alt="SARFEA Logo" className={`${darkMode ? 'h-14 scale-[2.4] translate-x-16' : 'h-11'} w-auto object-contain transition-all duration-300`} />
+          <img src={darkMode ? logoDarkImage : logoImage} alt="SARFEA Logo" className="h-9 md:h-11 w-auto object-contain transition-all duration-300" />
         </div>
 
         <div className="hidden md:flex items-center gap-8">
