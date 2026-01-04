@@ -68,9 +68,7 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
           "url": baseUrl,
           "logo": {
             "@type": "ImageObject",
-            "url": `${baseUrl}/logo.png`,
-            "width": 600,
-            "height": 60
+            "url": `${baseUrl}/logo.png`
           },
           "contactPoint": {
             "@type": "ContactPoint",
