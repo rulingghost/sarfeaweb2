@@ -77,7 +77,7 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
             initial={{ opacity: 0, height: 0, y: -20 }}
             animate={{ opacity: 1, height: 'auto', y: 0 }}
             exit={{ opacity: 0, height: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="absolute top-full left-0 w-full bg-white/95 dark:bg-slate-950/95 border-t border-slate-100 dark:border-slate-800 shadow-2xl md:hidden overflow-hidden backdrop-blur-xl"
           >
             <div className="p-4 space-y-2">

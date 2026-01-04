@@ -13,7 +13,7 @@ const CODE_SNIPPETS = [
   "git push cluster main",
   "docker-compose.yml: legacy-db: up",
   "const erp = new EnterpriseSystem();",
-  "while (true) { inovate(); }",
+  "while (true) { innovate(); }",
   "system.integrity > 99.9%",
   "process.env.NODE_ENV === 'production'",
   "new Socket('wss://sarfea.com.tr/live')",
