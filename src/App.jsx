@@ -16,6 +16,7 @@ import { CookieConsent } from './components/ui/CookieConsent';
 import { Toast } from './components/ui/Toast';
 import { ProjectCalculator } from './components/features/ProjectCalculator';
 import { DynamicSEO } from './components/ui/DynamicSEO';
+import { BackgroundEffects } from './components/ui/BackgroundEffects';
 
 
 // Pages
@@ -113,6 +114,9 @@ function App() {
   return (
     <HelmetProvider>
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
+
+      {/* Premium Background Effects & Mesh Gradient */}
+      <BackgroundEffects />
 
       {/* Automated SEO Engine */}
       <DynamicSEO activePage={activePage} language={language} t={t} />
