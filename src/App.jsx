@@ -113,7 +113,7 @@ function App() {
 
   return (
     <HelmetProvider>
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
+    <div className="min-h-screen transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
 
       {/* Premium Background Effects & Mesh Gradient */}
       <BackgroundEffects />

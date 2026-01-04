@@ -41,7 +41,7 @@ export const Contact = ({ t, language, onShowToast }) => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+    <div className="pt-28 min-h-screen bg-transparent transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <SectionHeader 
           title={t.contact_page.title} 

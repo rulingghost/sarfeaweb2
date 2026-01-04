@@ -44,7 +44,7 @@ export const BlogPost = ({ postId, setActivePage, t, language }) => {
   const content = post.isVirtual ? generateVirtualContent() : (post.content[language] || post.content['en']);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-28 pb-20">
+    <div className="min-h-screen bg-transparent pt-28 pb-20">
       <SEO 
         title={title}
         description={excerpt}
