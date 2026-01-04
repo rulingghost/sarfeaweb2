@@ -14,6 +14,7 @@ import { Newsletter } from './components/sections/Newsletter';
 import { CookieConsent } from './components/ui/CookieConsent';
 import { Toast } from './components/ui/Toast';
 import { ProjectCalculator } from './components/features/ProjectCalculator';
+import { DynamicSEO } from './components/ui/DynamicSEO';
 
 
 // Pages
@@ -113,6 +114,9 @@ function App() {
     <HelmetProvider>
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
 
+      {/* Automated SEO Engine */}
+      <DynamicSEO activePage={activePage} language={language} t={t} />
+
       <CookieConsent t={t} />
       <motion.div className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 origin-left z-[100] shadow-[0_1px_8px_rgba(59,130,246,0.5)]" style={{ scaleX }} />
       
@@ -130,7 +134,7 @@ function App() {
             </motion.button>
         )}
       </AnimatePresence>
-
+ 
       <AnimatePresence>
         {toast && <Toast message={toast} onClose={() => setToast(null)} t={t} />}
       </AnimatePresence>

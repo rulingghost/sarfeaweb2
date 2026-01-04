@@ -1,18 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BLOG_POSTS } from '../data/blogPosts';
-import { SEO } from '../components/ui/SEO';
 import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
 
 export const Blog = ({ setActivePage, t, language }) => {
   return (
     <section className="pt-32 pb-20 px-4 min-h-screen">
-      <SEO 
-        title={t.blog_page?.title}
-        description={t.blog_page?.subtitle}
-        keywords="blog, teknoloji, yazılım, insight, makale"
-      />
-      
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.div
@@ -20,8 +13,9 @@ export const Blog = ({ setActivePage, t, language }) => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm mb-6"
           >
+            <circle cx="12" cy="12" r="10" />
             <BookOpen size={16} />
-            <span>{t.navbar.blog}</span>
+            <span>Blog</span>
           </motion.div>
           
           <motion.h1 

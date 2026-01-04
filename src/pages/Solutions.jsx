@@ -5,16 +5,10 @@ import { TechStackMarquee } from '../components/ui/TechStackMarquee';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { PricingCard } from '../components/features/PricingCard';
 import { Reveal } from '../components/ui/Reveal';
-import { SEO } from '../components/ui/SEO';
 
 export const Solutions = ({ setActivePage, t }) => {
   return (
     <div className="pt-28 min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
-      <SEO 
-        title="Yazılım Çözümleri | CRM & ERP Geliştirme" 
-        description="Özel CRM yazılımları, ERP sistemleri ve mobil uygulama çözümlerimizi inceleyin. Sarfea olarak işletmenize özel teknoloji yığınları sunuyoruz."
-        keywords="crm programı, erp yazılımı, özel yazılım, b2b portal, e-ticaret altyapısı"
-      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <SectionHeader 
           title={t.solutions_page.title} 
@@ -32,7 +26,6 @@ export const Solutions = ({ setActivePage, t }) => {
           ]} />
         </div>
 
-        {/* Spotlight Efekti Eklenmiş Çözüm Kartları */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-32">
           {[
             { icon: LayoutDashboard, color: "blue" },
@@ -47,7 +40,6 @@ export const Solutions = ({ setActivePage, t }) => {
             const item = t.solutions_page.items[i];
             return (
             <Reveal key={i} delay={i * 50}>
-               {/* Spotlight Card Wrapper Kullanıldı */}
               <SpotlightCard className="rounded-[2rem] p-6 h-full flex flex-col" color={config.color}>
                 <div className={`w-14 h-14 rounded-2xl bg-${config.color}-100 dark:bg-${config.color}-900/30 flex items-center justify-center text-${config.color}-600 dark:text-${config.color}-400 mb-6 group-hover:scale-110 transition-transform shadow-md shadow-${config.color}-500/10 relative z-10`}>
                   <config.icon size={28} />
