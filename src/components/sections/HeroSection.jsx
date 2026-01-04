@@ -40,7 +40,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="space-y-10"
           >
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-v2 text-blue-700 dark:text-blue-300 text-sm font-bold shadow-sm hover:scale-105 transition-transform cursor-default">
@@ -96,7 +96,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative hidden lg:block perspective-1000"
           >
             <TiltContainer>

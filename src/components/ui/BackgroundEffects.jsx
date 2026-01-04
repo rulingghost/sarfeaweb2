@@ -37,9 +37,9 @@ export const BackgroundEffects = () => {
         }}
       />
       
-      {/* 2. Twinkling Noktalar */}
+      {/* 2. Twinkling Noktalar - Sayı azaltıldı, hız artırıldı */}
       <div className="absolute inset-0">
-        {[...Array(60)].map((_, i) => (
+        {[...Array(40)].map((_, i) => (
           <motion.div
             key={`dot-${i}`}
             initial={{ opacity: 0, scale: 0 }}
@@ -61,12 +61,12 @@ export const BackgroundEffects = () => {
         ))}
       </div>
 
-      {/* 3. Floating Code Snippets - Sayfa açıldığında heryerde hazır (Negative Delay Tekniği) */}
+      {/* 3. Floating Code Snippets - Daha Hızlı Akış */}
       <div className="absolute inset-0 overflow-hidden">
         {CODE_SNIPPETS.map((code, i) => {
             const randomLeft = Math.floor(Math.random() * 92);
-            const randomDuration = 25 + Math.random() * 35; 
-            const randomDelay = -(Math.random() * randomDuration); // Negatif delay: Animasyon "geçmişte" başlamış gibi olur (Full ekran kodu sağlar)
+            const randomDuration = 12 + Math.random() * 18; // 12-30 saniye (Önceki: 25-60)
+            const randomDelay = -(Math.random() * randomDuration); 
             
             return (
                 <motion.div
@@ -90,13 +90,13 @@ export const BackgroundEffects = () => {
         })}
       </div>
 
-      {/* 4. Mesh Gradient Işıkları */}
+      {/* 4. Mesh Gradient Işıkları - Hızlandırıldı */}
       <motion.div
         animate={{
           x: [0, 200, -150, 0],
           y: [0, -100, 150, 0],
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         className="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[180px]"
       />
       <motion.div
@@ -104,7 +104,7 @@ export const BackgroundEffects = () => {
           x: [0, -150, 100, 0],
           y: [0, 150, -100, 0],
         }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         className="absolute bottom-[-20%] right-[-20%] w-[90%] h-[90%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[180px]"
       />
     </div>
