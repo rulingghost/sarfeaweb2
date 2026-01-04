@@ -1,11 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BLOG_POSTS } from '../data/blogPosts';
+import { SEO } from '../components/ui/SEO';
 import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
 
 export const Blog = ({ setActivePage, t, language }) => {
   return (
     <section className="pt-32 pb-20 px-4 min-h-screen">
+      <SEO 
+        title={t.blog_page?.title}
+        description={t.blog_page?.subtitle}
+        keywords="blog, teknoloji, yazılım, insight, makale"
+      />
+      
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.div
@@ -13,7 +20,6 @@ export const Blog = ({ setActivePage, t, language }) => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm mb-6"
           >
-            <circle cx="12" cy="12" r="10" />
             <BookOpen size={16} />
             <span>Blog</span>
           </motion.div>
@@ -37,7 +43,7 @@ export const Blog = ({ setActivePage, t, language }) => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {BLOG_POSTS.map((post, index) => (
+          {BLOG_POSTS.slice(0, 12).map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
@@ -83,6 +89,22 @@ export const Blog = ({ setActivePage, t, language }) => {
               </div>
             </motion.article>
           ))}
+        </div>
+
+        {/* SEO Uzay Yakıtı (SEO Cloud) - Gizli ama Google Tarar */}
+        <div className="mt-32 opacity-20 hover:opacity-100 transition-opacity">
+          <h3 className="text-sm font-bold text-slate-500 mb-6 uppercase tracking-widest">Sektörel Çözüm Arşivi (Trend Analizi)</h3>
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
+            {BLOG_POSTS.filter(p => p.isVirtual).map(post => (
+              <button 
+                key={post.id} 
+                onClick={() => setActivePage(`blog-post-${post.id}`)}
+                className="text-[11px] text-slate-500 hover:text-blue-600 transition-colors underline decoration-slate-300"
+              >
+                {post.title[language] || post.title['en']}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Share2, Clock, User } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { SEO } from '../components/ui/SEO';
-import { Footer } from '../components/layout/Footer';
 
 export const BlogPost = ({ postId, setActivePage, t, language }) => {
   const post = BLOG_POSTS.find(p => p.slug === postId || p.id === postId);
@@ -11,8 +10,38 @@ export const BlogPost = ({ postId, setActivePage, t, language }) => {
   if (!post) return <div className="min-h-screen flex items-center justify-center text-slate-500">Post not found</div>;
 
   const title = post.title[language] || post.title['en'];
-  const content = post.content[language] || post.content['en'];
   const excerpt = post.excerpt[language] || post.excerpt['en'];
+  
+  // Virtual Post Content Generator
+  const generateVirtualContent = () => {
+    const { industry, service } = post;
+    if (language === 'tr') {
+      return `
+        <h2>${industry.tr} Sektöründe ${service.tr} İhtiyaçları</h2>
+        <p>${industry.tr} sektörü dinamik yapısı gereği hızlı ve güvenilir dijital çözümlere ihtiyaç duyar. Sarfea olarak geliştirdiğimiz ${service.tr} sistemleri, ${industry.tr} profesyonellerinin iş süreçlerini %40'a varan oranda hızlandırıyor.</p>
+        <h3>Neden Bizim ${service.tr} Çözümümüz?</h3>
+        <ul>
+          <li><strong>Sektörel Uzmanlık:</strong> ${industry.tr} iş akışlarına tam uyum.</li>
+          <li><strong>Yüksek Performans:</strong> En son teknoloji yığınları ile kesintisiz hizmet.</li>
+          <li><strong>Ölçeklenebilirlik:</strong> İşletmeniz büyüdükçe sizinle birlikte büyüyen altyapı.</li>
+        </ul>
+        <p>${service.tr} konusunda daha fazla bilgi almak ve işletmenize özel analiz yaptırmak için bizimle iletişime geçebilirsiniz.</p>
+      `;
+    }
+    return `
+      <h2>${service.en} Needs in the ${industry.en} Sector</h2>
+      <p>The ${industry.en} sector requires fast and reliable digital solutions due to its dynamic nature. The ${service.en} systems we develop at Sarfea accelerate the business processes of ${industry.en} professionals by up to 40%.</p>
+      <h3>Why Our ${service.en} Solution?</h3>
+      <ul>
+        <li><strong>Sectoral Expertise:</strong> Full compliance with ${industry.en} workflows.</li>
+        <li><strong>High Performance:</strong> Uninterrupted service with the latest technology stacks.</li>
+        <li><strong>Scalability:</strong> Infrastructure that grows with you as your business scales.</li>
+      </ul>
+      <p>Contact us to get more information about ${service.en} and to have a custom analysis for your business.</p>
+    `;
+  };
+
+  const content = post.isVirtual ? generateVirtualContent() : (post.content[language] || post.content['en']);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-28 pb-20">

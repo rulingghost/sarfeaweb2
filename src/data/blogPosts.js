@@ -1,8 +1,13 @@
-export const BLOG_POSTS = [
+import { generateVirtualPosts } from './autoSEOData';
+
+const TODAY = new Date().toISOString().split('T')[0];
+const YESTERDAY = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+
+const REAL_POSTS = [
   {
     id: 1,
     slug: "yapay-zeka-ile-erp-donusumu",
-    date: "2024-01-15",
+    date: TODAY,
     title: {
       tr: "Yapay Zeka ile ERP Dönüşümü: İşletmeler İçin Yeni Bir Çağ",
       en: "ERP Transformation with AI: A New Era for Businesses"
@@ -47,7 +52,7 @@ export const BLOG_POSTS = [
   {
     id: 2,
     slug: "neden-react-native",
-    date: "2024-01-20",
+    date: YESTERDAY,
     title: {
       tr: "Mobil Uygulama Geliştirmede Neden React Native?",
       en: "Why React Native for Mobile App Development?"
@@ -86,48 +91,10 @@ export const BLOG_POSTS = [
     },
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1000",
     tags: ["Mobile App", "React Native", "iOS", "Android"]
-  },
-  {
-    id: 3,
-    slug: "2025-yazilim-trendleri",
-    date: "2024-02-01",
-    title: {
-      tr: "2025 Yazılım Trendleri: Geleceğe Hazır Mısınız?",
-      en: "2025 Software Trends: Are You Ready for the Future?"
-    },
-    excerpt: {
-      tr: "Web 3.0, Low-Code platformlar ve Sürdürülebilir Yazılım Mühendisliği. 2025'te teknoloji dünyasını neler bekliyor?",
-      en: "Web 3.0, Low-Code platforms, and Sustainable Software Engineering. What awaits the tech world in 2025?"
-    },
-    content: {
-      tr: `
-        <h2>Geleceği Şekillendiren Teknolojiler</h2>
-        <p>Teknoloji dünyası her geçen gün değişiyor. 2025 yılına yaklaşırken, işletmelerin rekabetçi kalabilmesi için takip etmesi gereken trendleri derledik.</p>
-        
-        <h3>Öne Çıkan Trendler</h3>
-        <ol>
-            <li><strong>Yapay Zeka Destekli Geliştirme:</strong> Copilot ve benzeri araçlarla kod yazma süreçleri hızlanıyor.</li>
-            <li><strong>Sürdürülebilir Yazılım (Green Coding):</strong> Enerji verimliliği yüksek kodlama pratikleri önem kazanıyor.</li>
-            <li><strong>Platform Mühendisliği:</strong> DevOps'un evrimi ile geliştirici deneyimini (DX) iyileştiren platformlar.</li>
-        </ol>
-        
-        <p>Geleceği bugünden yakalamak için Sarfea Blog'u takip etmeye devam edin.</p>
-      `,
-      en: `
-        <h2>Technologies Shaping the Future</h2>
-        <p>The tech world changes every day. As we approach 2025, we've compiled the trends businesses must follow to remain competitive.</p>
-        
-        <h3>Prominent Trends</h3>
-        <ol>
-            <li><strong>AI-Assisted Development:</strong> Coding processes are accelerating with tools like Copilot.</li>
-            <li><strong>Sustainable Software (Green Coding):</strong> Energy-efficient coding practices are gaining importance.</li>
-            <li><strong>Platform Engineering:</strong> Platforms improving developer experience (DX) with the evolution of DevOps.</li>
-        </ol>
-        
-        <p>Keep following the Sarfea Blog to catch the future today.</p>
-      `
-    },
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000",
-    tags: ["Trends", "Future", "Software Engineering", "Web 3.0"]
   }
 ];
+
+export const BLOG_POSTS = [...REAL_POSTS, ...generateVirtualPosts()].map(p => ({
+  ...p,
+  date: p.isVirtual ? TODAY : p.date
+}));
