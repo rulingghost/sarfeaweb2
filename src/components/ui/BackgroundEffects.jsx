@@ -20,27 +20,27 @@ const CODE_SNIPPETS = [
 
 export const BackgroundEffects = () => {
   return (
-    <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none transition-colors duration-500">
       
-      {/* 1. Dinamik Izgara (Grid System) */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)]" />
+      {/* 1. Dinamik Izgara (Görünürlüğü artırıldı) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:50px_50px] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]" />
       
-      {/* 2. Twinkling Dots (Siber Doku) */}
+      {/* 2. Twinkling Dots (Daha belirgin mavi noktalar) */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={`dot-${i}`}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
-              opacity: [0, 0.4, 0],
-              scale: [0, 1, 0],
+              opacity: [0, 0.6, 0],
+              scale: [0, 1.5, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 2 + 1.5,
               repeat: Infinity,
               delay: Math.random() * 5,
             }}
-            className="absolute w-1 h-1 bg-blue-500 rounded-full"
+            className="absolute w-1.5 h-1.5 bg-blue-500/40 rounded-full"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -49,21 +49,21 @@ export const BackgroundEffects = () => {
         ))}
       </div>
 
-      {/* 3. Floating Code Snippets (Fantom Kodlar) */}
+      {/* 3. Floating Code Snippets (Görünürlük %15'e çıkarıldı - Artık Görülür!) */}
       {/* Sol Kenar */}
-      <div className="absolute left-4 top-0 bottom-0 w-64 opacity-[0.03] dark:opacity-[0.07] overflow-hidden hidden lg:block">
+      <div className="absolute left-6 top-0 bottom-0 w-64 opacity-[0.15] dark:opacity-[0.2] overflow-hidden hidden lg:block">
         {CODE_SNIPPETS.slice(0, 7).map((code, i) => (
           <motion.div
             key={`code-l-${i}`}
-            initial={{ y: "100vh", opacity: 0 }}
+            initial={{ y: "110vh", opacity: 0 }}
             animate={{ y: "-20vh", opacity: [0, 1, 1, 0] }}
             transition={{
-              duration: 25 + i * 5,
+              duration: 20 + i * 4,
               repeat: Infinity,
               ease: "linear",
-              delay: i * 3
+              delay: i * 2
             }}
-            className="text-[10px] font-mono whitespace-nowrap mb-8"
+            className="text-[11px] font-mono whitespace-nowrap mb-12 text-blue-600 dark:text-blue-400"
           >
             {code}
           </motion.div>
@@ -71,44 +71,42 @@ export const BackgroundEffects = () => {
       </div>
 
       {/* Sağ Kenar */}
-      <div className="absolute right-4 top-0 bottom-0 w-64 opacity-[0.03] dark:opacity-[0.07] overflow-hidden hidden lg:block">
+      <div className="absolute right-6 top-0 bottom-0 w-64 opacity-[0.15] dark:opacity-[0.2] overflow-hidden hidden lg:block">
          {CODE_SNIPPETS.slice(7).map((code, i) => (
           <motion.div
             key={`code-r-${i}`}
-            initial={{ y: "100vh", opacity: 0 }}
+            initial={{ y: "110vh", opacity: 0 }}
             animate={{ y: "-20vh", opacity: [0, 1, 1, 0] }}
             transition={{
-              duration: 30 + i * 4,
+              duration: 22 + i * 5,
               repeat: Infinity,
               ease: "linear",
-              delay: i * 4
+              delay: i * 3
             }}
-            className="text-[10px] font-mono whitespace-nowrap mb-8 text-right"
+            className="text-[11px] font-mono whitespace-nowrap mb-12 text-right text-purple-600 dark:text-purple-400"
           >
             {code}
           </motion.div>
         ))}
       </div>
 
-      {/* 4. Mesh Gradient Clouds (Existing) */}
+      {/* 4. Mesh Gradient Clouds (Daha renkli) */}
       <motion.div
         animate={{
-          x: [0, 50, -30, 0],
-          y: [0, -30, 30, 0],
+          x: [0, 60, -40, 0],
+          y: [0, -40, 40, 0],
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 left-0 w-[50%] h-[50%] bg-blue-400/5 dark:bg-blue-600/5 rounded-full blur-[120px]"
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute top-0 left-0 w-[60%] h-[60%] bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-[120px]"
       />
       <motion.div
         animate={{
-          x: [0, -40, 20, 0],
-          y: [0, 40, -20, 0],
+          x: [0, -50, 30, 0],
+          y: [0, 50, -30, 0],
         }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-0 right-0 w-[40%] h-[40%] bg-purple-400/5 dark:bg-purple-600/5 rounded-full blur-[120px]"
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[120px]"
       />
-
-      <div className="noise-overlay" />
     </div>
   );
 };

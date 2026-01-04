@@ -113,65 +113,68 @@ function App() {
 
   return (
     <HelmetProvider>
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-500 font-sans selection:bg-purple-500/30 dark:selection:bg-blue-500/30">
 
       {/* Premium Background Effects & Mesh Gradient */}
       <BackgroundEffects />
 
-      {/* Automated SEO Engine */}
-      <DynamicSEO activePage={activePage} language={language} t={t} />
+      {/* Main Content Wrapper (Elevated above background) */}
+      <div className="relative z-10 overflow-x-hidden">
+        {/* Automated SEO Engine */}
+        <DynamicSEO activePage={activePage} language={language} t={t} />
 
-      <CookieConsent t={t} />
-      <motion.div className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 origin-left z-[100] shadow-[0_1px_8px_rgba(59,130,246,0.5)]" style={{ scaleX }} />
-      
-      {/* Scroll to Top Button (Hidden on Mobile for App Nav) */}
-      <AnimatePresence>
-        {isScrolled && (
-            <motion.button
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                onClick={scrollToTop}
-                className="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-40 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
-            >
-                <ArrowUp size={24} />
-            </motion.button>
-        )}
-      </AnimatePresence>
+        <CookieConsent t={t} />
+        <motion.div className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 origin-left z-[100] shadow-[0_1px_8px_rgba(59,130,246,0.5)]" style={{ scaleX }} />
+        
+        {/* Scroll to Top Button */}
+        <AnimatePresence>
+          {isScrolled && (
+              <motion.button
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  onClick={scrollToTop}
+                  className="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-40 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
+              >
+                  <ArrowUp size={24} />
+              </motion.button>
+          )}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        {toast && <Toast message={toast} onClose={() => setToast(null)} t={t} />}
-      </AnimatePresence>
+        <AnimatePresence>
+          {toast && <Toast message={toast} onClose={() => setToast(null)} t={t} />}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        {isCalculatorOpen && <ProjectCalculator isOpen={isCalculatorOpen} onClose={() => setIsCalculatorOpen(false)} onShowToast={(msg) => setToast(msg)} t={t} />}
-      </AnimatePresence>
+        <AnimatePresence>
+          {isCalculatorOpen && <ProjectCalculator isOpen={isCalculatorOpen} onClose={() => setIsCalculatorOpen(false)} onShowToast={(msg) => setToast(msg)} t={t} />}
+        </AnimatePresence>
 
-      <Navbar 
-        activePage={activePage} 
-        setActivePage={setActivePage} 
-        isScrolled={isScrolled} 
-        darkMode={darkMode} 
-        setDarkMode={setDarkMode}
-        language={language}
-        setLanguage={setLanguage}
-        t={t} 
-      />
+        <Navbar 
+          activePage={activePage} 
+          setActivePage={setActivePage} 
+          isScrolled={isScrolled} 
+          darkMode={darkMode} 
+          setDarkMode={setDarkMode}
+          language={language}
+          setLanguage={setLanguage}
+          t={t} 
+        />
 
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={activePage}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          {renderContent()}
-        </motion.main>
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={activePage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderContent()}
+          </motion.main>
+        </AnimatePresence>
 
-      <Newsletter t={t} />
-      <Footer t={t} setActivePage={setActivePage} />
+        <Newsletter t={t} />
+        <Footer t={t} setActivePage={setActivePage} />
+      </div>
 
       {/* App-like Mobile Bottom Navigation */}
       <MobileBottomNav activePage={activePage} setActivePage={setActivePage} t={t} />
