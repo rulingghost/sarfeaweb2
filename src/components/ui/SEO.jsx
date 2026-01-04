@@ -1,33 +1,60 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export const SEO = ({ title, description, keywords, image, url }) => {
-  const siteTitle = "SARFEA - Dijital Dönüşüm & Yazılım Teknolojileri";
-  const defaultDescription = "Sarfea - Dijital Dönüşüm, Yazılım, ERP, CRM, Mobil Uygulama ve Yapay Zeka Çözümleri.";
-  const defaultKeywords = "yazılım, dijital dönüşüm, erp, crm, yapay zeka, web tasarım";
-  const siteUrl = "https://sarfea.com";
+export const SEO = ({ title, description, keywords, image, url, type = "website", schemaData }) => {
+  const siteTitle = "SARFEA | Dijital Dönüşüm, CRM, ERP & Yazılım Çözümleri";
+  const defaultDescription = "Sarfea, işletmeniz için özel CRM, ERP, Mobil Uygulama ve Web Platformları kodlar. Dijital dönüşümde lider yazılım ortağınız.";
+  const defaultKeywords = "crm yazılımı, erp sistemleri, dijital dönüşüm, özel yazılım geliştirme, kurumsal yazılım, mobil uygulama yapan firmalar, sarfea, yazılım teknolojileri, bulut tabanlı crm, işletme otomasyonu";
+  const siteUrl = "https://sarfea.com"; // Gerçek domain ile değiştirilmelidir
+  const defaultImage = "https://sarfea.com/og-image.jpg"; // Varsayılan paylaşım görseli
+
+  const fullTitle = title ? `${title} | SARFEA` : siteTitle;
+  const fullDescription = description || defaultDescription;
+  const fullKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
+  const fullUrl = url ? `${siteUrl}/${url}` : siteUrl;
+  const fullImage = image || defaultImage;
 
   return (
     <Helmet>
-      <title>{title ? `${title} | SARFEA` : siteTitle}</title>
-      <meta name="description" content={description || defaultDescription} />
-      <meta name="keywords" content={keywords || defaultKeywords} />
-      
+      {/* Temel Meta Etiketleri */}
+      <title>{fullTitle}</title>
+      <meta name="description" content={fullDescription} />
+      <meta name="keywords" content={fullKeywords} />
+      <meta name="robots" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="utf-8" />
+      <link rel="canonical" href={fullUrl} />
+
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url || siteUrl} />
-      <meta property="og:title" content={title ? `${title} | SARFEA` : siteTitle} />
-      <meta property="og:description" content={description || defaultDescription} />
-      {image && <meta property="og:image" content={image} />}
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={fullDescription} />
+      <meta property="og:image" content={fullImage} />
+      <meta property="og:site_name" content="SARFEA" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url || siteUrl} />
-      <meta property="twitter:title" content={title ? `${title} | SARFEA` : siteTitle} />
-      <meta property="twitter:description" content={description || defaultDescription} />
-      {image && <meta property="twitter:image" content={image} />}
-      
-      <link rel="canonical" href={url || siteUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content={fullImage} />
+
+      {/* Schema.org JSON-LD (Search Results'ta zengin içerik için) */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData || {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "SARFEA",
+          "url": siteUrl,
+          "logo": "https://sarfea.com/logo.png",
+          "description": defaultDescription,
+          "sameAs": [
+            "https://www.linkedin.com/company/sarfea",
+            "https://twitter.com/sarfea"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 };

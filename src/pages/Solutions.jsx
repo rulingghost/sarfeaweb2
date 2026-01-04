@@ -5,10 +5,16 @@ import { TechStackMarquee } from '../components/ui/TechStackMarquee';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { PricingCard } from '../components/features/PricingCard';
 import { Reveal } from '../components/ui/Reveal';
+import { SEO } from '../components/ui/SEO';
 
 export const Solutions = ({ setActivePage, t }) => {
   return (
     <div className="pt-28 min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+      <SEO 
+        title="Yazılım Çözümleri | CRM & ERP Geliştirme" 
+        description="Özel CRM yazılımları, ERP sistemleri ve mobil uygulama çözümlerimizi inceleyin. Sarfea olarak işletmenize özel teknoloji yığınları sunuyoruz."
+        keywords="crm programı, erp yazılımı, özel yazılım, b2b portal, e-ticaret altyapısı"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <SectionHeader 
           title={t.solutions_page.title} 

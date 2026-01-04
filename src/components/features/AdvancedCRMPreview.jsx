@@ -1,19 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   LayoutDashboard, Users, CreditCard, Settings, 
   Bell, Search, CheckCircle2,
-  Briefcase, MessageSquare, Ticket, ChevronRight, Clock, MoreHorizontal, Phone, Mail, Video, Mic, Smartphone
+  Briefcase, MessageSquare, Ticket, ChevronRight, Clock, MoreHorizontal, Phone, Mail, Video, Mic, Smartphone,
+  X, Check
 } from 'lucide-react';
 
 export const AdvancedCRMPreview = ({ t }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTicket, setActiveTicket] = useState(1);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [notification, setNotification] = useState(null);
+
+  // Simulate an incoming notification after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNotification({
+        id: Date.now(),
+        user: "Atlas Holding",
+        msg: "Yeni revize dosyaları yüklendi.",
+        icon: <Briefcase size={12}/>
+      });
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="w-full h-[500px] bg-[#0f172a] flex overflow-hidden select-none font-sans text-xs shadow-2xl relative rounded-[1.5rem] border border-slate-800 ring-1 ring-slate-800/50">
        {/* Ambient Glows */}
        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
        <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      {/* Internal Notification Toast */}
+      <AnimatePresence>
+        {notification && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="absolute top-4 right-4 z-[100] bg-[#1e293b] border border-blue-500/30 p-3 rounded-xl shadow-2xl flex items-center gap-3 w-64 backdrop-blur-xl"
+          >
+            <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+              {notification.icon}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-slate-100 font-bold text-[10px] truncate">{notification.user}</div>
+              <div className="text-slate-500 text-[9px] truncate">{notification.msg}</div>
+            </div>
+            <button onClick={() => setNotification(null)} className="text-slate-600 hover:text-white transition-colors">
+              <X size={14}/>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Collapsed Sidebar */}
       <div className="w-20 hidden md:flex flex-col items-center py-6 border-r border-slate-800/50 bg-[#0f172a]/95 backdrop-blur-xl relative z-20">
@@ -57,7 +97,10 @@ export const AdvancedCRMPreview = ({ t }) => {
          
          <div className="mt-auto flex flex-col gap-4 pb-2">
              <SideItem icon={<Settings size={20}/>} tooltip="Ayarlar" />
-             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-violet-600 flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-[#0f172a] cursor-pointer hover:ring-indigo-500/50 transition-all">MK</div>
+             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-violet-600 flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-[#0f172a] cursor-pointer hover:ring-indigo-500/50 transition-all relative">
+                MK
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-[#0f172a]"></span>
+             </div>
          </div>
       </div>
 
@@ -91,9 +134,15 @@ export const AdvancedCRMPreview = ({ t }) => {
            </div>
            
            <div className="flex items-center gap-4">
-               <div className="hidden lg:flex items-center bg-slate-800/50 rounded-lg px-3 py-1.5 border border-slate-700/50 w-48 hover:border-slate-600/80 transition-colors focus-within:border-blue-500/50 focus-within:bg-slate-800">
-                  <Search size={14} className="text-slate-500 mr-2"/>
-                  <input type="text" placeholder="Ara (Cmd+K)..." className="bg-transparent border-none outline-none text-slate-300 placeholder:text-slate-600 text-[10px] w-full"/>
+               <div className={`hidden lg:flex items-center bg-slate-800/50 rounded-lg px-3 py-1.5 border transition-all duration-300 ${isSearchFocused ? 'w-64 border-blue-500 shadow-blue-500/10 bg-slate-800 shadow-lg' : 'w-48 border-slate-700/50 hover:border-slate-600/80'}`}>
+                  <Search size={14} className={`${isSearchFocused ? 'text-blue-400' : 'text-slate-500'} mr-2 transition-colors`}/>
+                  <input 
+                    type="text" 
+                    placeholder="Ara (Cmd+K)..." 
+                    onFocus={() => setIsSearchFocused(true)}
+                    onBlur={() => setIsSearchFocused(false)}
+                    className="bg-transparent border-none outline-none text-slate-300 placeholder:text-slate-600 text-[10px] w-full"
+                  />
                </div>
                <div className="h-6 w-[1px] bg-slate-800/50 hidden md:block"></div>
                <button className="relative p-1.5 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white group">
@@ -109,7 +158,7 @@ export const AdvancedCRMPreview = ({ t }) => {
                 {activeTab === 'dashboard' && <DashboardView key="dashboard" />}
                 {activeTab === 'projects' && <ProjectsView key="projects" />}
                 {activeTab === 'customers' && <CustomersView key="customers" />}
-                {activeTab === 'support' && <SupportView key="support" />}
+                {activeTab === 'support' && <SupportView key="support" activeTicket={activeTicket} setActiveTicket={setActiveTicket} />}
             </AnimatePresence>
         </div>
       </div>
@@ -122,9 +171,6 @@ export const AdvancedCRMPreview = ({ t }) => {
           50% { height: 20px; }
         }
         .waveform-bar { animation: waveform 1s infinite ease-in-out; }
-        .waveform-bar:nth-child(2) { animation-delay: 0.1s; }
-        .waveform-bar:nth-child(3) { animation-delay: 0.2s; }
-        .waveform-bar:nth-child(4) { animation-delay: 0.3s; }
       `}</style>
     </div>
   );
@@ -137,7 +183,6 @@ const DashboardView = () => (
         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}
         className="flex flex-col gap-6"
     >
-       {/* Compact Stats Grid */}
        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
            <KPICard title="Toplam Ciro" value="₺485.2K" trend="+%18" color="indigo" icon={<CreditCard size={18}/>} progress={85} />
            <KPICard title="Aktif Müşteri" value="142" trend="+12" color="blue" icon={<Users size={18}/>} progress={92} />
@@ -147,25 +192,17 @@ const DashboardView = () => (
 
        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
           <div className="lg:col-span-2 space-y-4">
-             {/* Chart Card */}
-             <div className="bg-[#1e293b]/50 p-5 rounded-2xl border border-slate-800/50 hover:border-slate-700/50 transition-colors">
+             <div className="bg-[#1e293b]/50 p-5 rounded-2xl border border-slate-800/50 hover:border-slate-700/50 transition-colors shadow-sm">
                  <div className="flex justify-between items-center mb-6">
                     <div>
-                        <h3 className="text-slate-100 font-bold text-xs">Gelir Analizi (Yıl Sonu)</h3>
+                        <h3 className="text-slate-100 font-bold text-xs">Gelir Analizi</h3>
                         <p className="text-slate-500 text-[10px]">İletişim trafiği ile artan satışlar</p>
                     </div>
                     <div className="flex gap-2">
                         {[45, 50, 65, 60, 80, 50, 70, 85, 75, 95, 90, 100].map((h, i) => (
                             <div key={i} className="group/bar relative w-2 md:w-3 bg-slate-800/50 rounded-sm h-16 flex items-end overflow-hidden cursor-pointer">
-                                <motion.div 
-                                  initial={{ height: 0 }} 
-                                  animate={{ height: `${h}%` }} 
-                                  transition={{ delay: i * 0.05 }}
-                                  className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-sm group-hover/bar:from-blue-500 group-hover/bar:to-blue-300 transition-all" 
-                                />
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-800 text-[9px] text-white px-1.5 py-0.5 rounded opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap z-10 border border-slate-700 pointer-events-none">
-                                    ₺{h}K
-                                </div>
+                                <motion.div initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: i * 0.05 }}
+                                  className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-sm group-hover/bar:from-blue-500 group-hover/bar:to-blue-300 transition-all" />
                             </div>
                         ))}
                     </div>
@@ -178,10 +215,10 @@ const DashboardView = () => (
              </div>
           </div>
 
-          <div className="bg-[#1e293b]/50 p-5 rounded-2xl border border-slate-800/50 h-full flex flex-col hover:border-slate-700/50 transition-colors">
+          <div className="bg-[#1e293b]/50 p-5 rounded-2xl border border-slate-800/50 h-full flex flex-col hover:border-slate-700/50 transition-colors shadow-sm">
               <div className="flex justify-between items-center mb-4">
                   <h3 className="text-slate-100 font-bold text-xs">Son İletişimler</h3>
-                  <MoreHorizontal size={14} className="text-slate-500 cursor-pointer hover:text-white"/>
+                  <MoreHorizontal size={14} className="text-slate-500 cursor-pointer hover:text-white transition-colors"/>
               </div>
               <div className="space-y-4 relative pl-3.5 before:absolute before:left-[6px] before:top-1.5 before:bottom-1.5 before:w-[1px] before:bg-slate-800">
                   <ActivityItem user="Ahmet Y." action="Görüntülü Görüşme" target="TechSol CEO" time="Şimdi" color="emerald" icon={<Video size={10}/>} />
@@ -218,7 +255,7 @@ const ProjectsView = () => (
 );
 
 const CustomersView = () => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#1e293b]/50 rounded-2xl border border-slate-800/50 overflow-hidden hover:border-slate-700/50 transition-colors">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#1e293b]/50 rounded-2xl border border-slate-800/50 overflow-hidden hover:border-slate-700/50 transition-colors shadow-sm">
         <table className="w-full text-left">
             <thead className="bg-slate-900/50 text-slate-500 font-bold uppercase text-[9px]">
                 <tr>
@@ -243,54 +280,76 @@ const CustomersView = () => (
     </motion.div>
 );
 
-const SupportView = () => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-4 h-full">
-         <div className="w-5/12 flex flex-col gap-3 pr-1 overflow-y-auto no-scrollbar">
-             <TicketItem title="Mert K. (CTO)" desc="Görüşme Başladı: API Entegrasyonu" time="Şimdi" status="Görüşülüyor" color="emerald" active />
-             <TicketItem title="Selin Y. (Ops)" desc="Zoom Linki gönderildi" time="2dk" status="Bekleniyor" color="blue" />
-             <TicketItem title="Can T. (Dev)" desc="Veritabanı migration onayı" time="5dk" status="Chat" color="purple" />
-             <TicketItem title="Ahmet A. (Mobile)" desc="Android build hatası logları" time="12dk" status="Chat" color="purple" />
-             <TicketItem title="Zeynep B. (Design)" desc="Yeni UX revizeleri hk." time="30dk" status="Mail" color="orange" />
-         </div>
-         <div className="w-7/12 bg-[#1e293b]/30 rounded-xl border border-slate-800/50 px-6 py-8 flex items-center justify-center flex-col text-slate-500 relative overflow-hidden">
-             {/* Dynamic Audio Visualizer Background */}
-             <div className="absolute inset-x-0 bottom-0 h-32 flex items-end justify-center gap-1 opacity-20 pointer-events-none">
-                 {[...Array(20)].map((_, i) => (
-                    <motion.div 
-                        key={i}
-                        animate={{ height: [10, Math.random() * 60 + 20, 10] }}
-                        transition={{ repeat: Infinity, duration: 0.5 + Math.random() * 0.5 }}
-                        className="w-1.5 bg-emerald-500 rounded-t-sm"
+const SupportView = ({ activeTicket, setActiveTicket }) => {
+    const tickets = [
+        { id: 1, title: "Mert K. (CTO)", desc: "API Entegrasyonu hk.", time: "Şimdi", status: "Görüşülüyor", color: "emerald", type: "call", avatar: "Mert" },
+        { id: 2, title: "Selin Y. (Ops)", desc: "Dosya bekliyor", time: "2dk", status: "Beklemede", color: "blue", type: "mail", avatar: "Selin" },
+        { id: 3, title: "Can T. (Dev)", desc: "Migration onayı", time: "5dk", status: "Chat", color: "purple", type: "chat", avatar: "Can" },
+        { id: 4, title: "Ahmet A. (Mob)", desc: "Log dosyaları", time: "12dk", status: "Chat", color: "purple", type: "chat", avatar: "Ahmet" }
+    ];
+
+    const currentTicket = tickets.find(t => t.id === activeTicket) || tickets[0];
+
+    return (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-4 h-full">
+            <div className="w-5/12 flex flex-col gap-3 pr-1 overflow-y-auto no-scrollbar">
+                {tickets.map(t => (
+                    <TicketItem 
+                        key={t.id}
+                        {...t} 
+                        active={activeTicket === t.id} 
+                        onClick={() => setActiveTicket(t.id)} 
                     />
-                 ))}
-             </div>
-             
-             <div className="w-20 h-20 rounded-full bg-slate-800 flex items-center justify-center mb-4 relative z-10 ring-4 ring-slate-800 shadow-2xl">
-                  <div className="absolute inset-0 rounded-full border-2 border-emerald-500/30 animate-[ping_2s_linear_infinite]"></div>
-                  <div className="absolute inset-0 rounded-full border border-emerald-500/50 animate-[ping_1.5s_linear_infinite]"></div>
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mert" alt="Caller" className="w-full h-full rounded-full opacity-80" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-emerald-500 rounded-full border-2 border-slate-800 flex items-center justify-center text-white">
-                      <Mic size={12} />
-                  </div>
-             </div>
-             <h4 className="text-slate-100 font-bold text-sm mb-1 relative z-10">Mert K.</h4>
-             <p className="text-[10px] text-center max-w-[180px] text-emerald-400 font-medium relative z-10 mb-6">Ses Bağlantısı Aktif • 04:12</p>
-             
-             <div className="flex gap-4 relative z-10">
-                 <button className="w-10 h-10 rounded-full bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center border border-red-500/30"><Phone size={18} className="rotate-[135deg]"/></button>
-                 <button className="w-10 h-10 rounded-full bg-slate-700/50 text-slate-300 hover:bg-slate-600 transition-all flex items-center justify-center"><Video size={18}/></button>
-                 <button className="w-10 h-10 rounded-full bg-slate-700/50 text-slate-300 hover:bg-slate-600 transition-all flex items-center justify-center"><Mic size={18}/></button>
-             </div>
-         </div>
-    </motion.div>
-);
+                ))}
+            </div>
+            <div className="w-7/12 bg-[#1e293b]/30 rounded-xl border border-slate-800/50 px-6 py-8 flex items-center justify-center flex-col text-slate-500 relative overflow-hidden">
+                <div className="absolute inset-x-0 bottom-0 h-32 flex items-end justify-center gap-1 opacity-20 pointer-events-none">
+                    {[...Array(20)].map((_, i) => (
+                        <motion.div 
+                            key={i}
+                            animate={currentTicket.type === 'call' ? { height: [10, Math.random() * 60 + 20, 10] } : { height: 5 }}
+                            transition={{ repeat: Infinity, duration: 0.5 + Math.random() * 0.5 }}
+                            className={`w-1.5 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-t-sm`}
+                        />
+                    ))}
+                </div>
+                
+                <div className="w-20 h-20 rounded-full bg-slate-800 flex items-center justify-center mb-4 relative z-10 ring-4 ring-slate-800 shadow-2xl">
+                    <div className={`absolute inset-0 rounded-full border-2 ${currentTicket.type === 'call' ? 'border-emerald-500/30 animate-[ping_2s_linear_infinite]' : 'border-blue-500/10'}`}></div>
+                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${currentTicket.avatar}`} alt="Avatar" className="w-full h-full rounded-full opacity-90" />
+                    <div className={`absolute bottom-0 right-0 w-6 h-6 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-full border-2 border-slate-800 flex items-center justify-center text-white`}>
+                        {currentTicket.type === 'call' ? <Mic size={12} /> : currentTicket.type === 'chat' ? <MessageSquare size={12}/> : <Mail size={12}/>}
+                    </div>
+                </div>
+                <h4 className="text-slate-100 font-bold text-sm mb-1 relative z-10">{currentTicket.title}</h4>
+                <p className={`text-[10px] text-center max-w-[180px] font-medium relative z-10 mb-6 ${currentTicket.type === 'call' ? 'text-emerald-400' : 'text-blue-400'}`}>
+                    {currentTicket.type === 'call' ? 'Ses Bağlantısı Aktif • 04:12' : currentTicket.type === 'chat' ? 'Yazıyor...' : 'E-posta Bekleniyor'}
+                </p>
+                
+                <div className="flex gap-4 relative z-10">
+                    {currentTicket.type === 'call' ? (
+                        <>
+                            <button className="w-10 h-10 rounded-full bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center border border-red-500/30 shadow-lg shadow-red-500/10"><Phone size={18} className="rotate-[135deg]"/></button>
+                            <button className="w-10 h-10 rounded-full bg-slate-700/50 text-slate-300 hover:bg-slate-600 transition-all flex items-center justify-center"><Video size={18}/></button>
+                            <button className="w-10 h-10 rounded-full bg-slate-700/50 text-slate-300 hover:bg-slate-600 transition-all flex items-center justify-center"><Mic size={18}/></button>
+                        </>
+                    ) : (
+                        <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-bold text-[10px] hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                             <Check size={14}/> Yanıtla
+                        </button>
+                    )}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
 
 /* --- Components --- */
 
 const SideItem = ({ icon, active, onClick, tooltip, badge, badgeColor = 'blue' }) => (
     <div 
       onClick={onClick}
-      className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-200 group relative ${active ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 ring-1 ring-blue-500/50' : 'text-slate-500 hover:bg-slate-800 hover:text-indigo-400'}`}
+      className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-200 group relative ${active ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' : 'text-slate-500 hover:bg-slate-800 hover:text-indigo-400'}`}
     >
         {icon}
         {badge && (
@@ -316,8 +375,8 @@ const KPICard = ({ title, value, trend, color, icon, progress, pulse }) => (
             <div className="text-lg font-bold text-slate-100 tracking-tight truncate">{value}</div>
         </div>
         {progress && (
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-slate-800">
-                <div className={`h-full bg-${color}-500/50`} style={{ width: `${progress}%` }}></div>
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-800/50">
+                <motion.div initial={{ width: 0 }} animate={{ width: `${progress}%` }} className={`h-full bg-${color}-500`} transition={{ duration: 1 }} />
             </div>
         )}
     </div>
@@ -326,11 +385,11 @@ const KPICard = ({ title, value, trend, color, icon, progress, pulse }) => (
 const DealRow = ({ client, project, amount, status }) => (
     <div className="flex items-center justify-between p-2 hover:bg-slate-800/50 rounded-lg transition-colors cursor-pointer group">
         <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center font-bold text-[10px] text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-colors shrink-0">
+            <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center font-bold text-[10px] text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 {client.charAt(0)}
             </div>
             <div className="min-w-0">
-                <div className="text-slate-200 font-bold text-[11px] truncate group-hover:text-blue-400 transition-colors">{client}</div>
+                <div className="text-slate-200 font-bold text-[11px] truncate">{client}</div>
                 <div className="text-slate-500 text-[9px] truncate">{project}</div>
             </div>
         </div>
@@ -358,24 +417,24 @@ const ActivityItem = ({ user, action, target, time, color, icon }) => (
 );
 
 const ProjectCard = ({ name, client, progress, deadline, status, team }) => (
-    <div className="bg-[#1e293b]/50 p-4 rounded-xl border border-slate-800/50 hover:border-blue-500/30 hover:bg-[#1e293b]/80 transition-all cursor-pointer group relative overflow-hidden">
+    <div className="bg-[#1e293b]/50 p-4 rounded-xl border border-slate-800/50 hover:border-blue-500/30 hover:bg-[#1e293b]/80 transition-all cursor-pointer group relative overflow-hidden shadow-sm">
         <div className="flex justify-between items-start mb-2 relative z-10">
-             <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold text-xs group-hover:scale-110 transition-transform">
+             <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold text-xs group-hover:rotate-6 transition-transform">
                  {client.charAt(0)}
              </div>
              <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${status === 'Prod' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400'}`}>{status}</span>
         </div>
-        <h4 className="relative z-10 text-slate-100 font-bold text-xs mb-0.5 truncate group-hover:text-blue-400 transition-colors">{name}</h4>
+        <h4 className="relative z-10 text-slate-100 font-bold text-xs mb-0.5 truncate group-hover:text-blue-400 transition-colors uppercase tracking-tight">{name}</h4>
         <p className="relative z-10 text-slate-500 text-[10px] mb-3 truncate">{client}</p>
         
         <div className="relative z-10 w-full bg-slate-800 h-1 rounded-full overflow-hidden mb-3">
-             <div className="bg-blue-500 h-full rounded-full" style={{ width: `${progress}%` }}></div>
+             <motion.div initial={{ width: 0 }} animate={{ width: `${progress}%` }} className="bg-blue-500 h-full rounded-full" transition={{ duration: 1, delay: 0.2 }} />
         </div>
         
         <div className="relative z-10 flex items-center justify-between">
              <div className="flex -space-x-1.5">
                  {team.map((initials, i) => (
-                     <div key={i} className="w-4 h-4 rounded-full bg-slate-700 border border-[#1e293b] flex items-center justify-center text-[8px] text-white font-bold" title="Team Member">
+                     <div key={i} className="w-4 h-4 rounded-full bg-slate-700 border border-[#1e293b] flex items-center justify-center text-[8px] text-white font-bold transition-transform hover:-translate-y-1" title="Team Member">
                          {initials}
                      </div>
                  ))}
@@ -389,7 +448,7 @@ const CustomerRow = ({ name, email, sector, status, activity }) => (
     <tr className="hover:bg-slate-800/30 transition-colors group cursor-pointer border-l-2 border-transparent hover:border-blue-500">
         <td className="px-5 py-3">
             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-[10px] shrink-0">
+                <div className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-[10px]">
                     {name.charAt(0)}
                 </div>
                 <div className="min-w-0 max-w-[100px] lg:max-w-none">
@@ -416,13 +475,16 @@ const CustomerRow = ({ name, email, sector, status, activity }) => (
     </tr>
 );
 
-const TicketItem = ({ title, desc, time, status, color, active }) => (
-    <div className={`p-3 rounded-xl border mb-2 cursor-pointer transition-all ${active ? 'bg-blue-600/10 border-blue-500/30' : 'bg-[#1e293b]/50 border-slate-800/50 hover:border-slate-700'}`}>
+const TicketItem = ({ title, desc, time, status, color, active, onClick }) => (
+    <div 
+        onClick={onClick}
+        className={`p-3 rounded-xl border mb-2 cursor-pointer transition-all duration-300 ${active ? 'bg-blue-600/10 border-blue-500/40 shadow-lg shadow-blue-500/5' : 'bg-[#1e293b]/50 border-slate-800/50 hover:border-slate-700'}`}
+    >
          <div className="flex justify-between mb-1">
              <span className={`text-${color}-400 text-[9px] font-bold`}>{status}</span>
              <span className="text-slate-500 text-[9px]">{time}</span>
          </div>
-         <h4 className={`font-bold text-xs mb-0.5 truncate ${active ? 'text-blue-400' : 'text-slate-200'}`}>{title}</h4>
+         <h4 className={`font-bold text-xs mb-0.5 truncate transition-colors ${active ? 'text-blue-400' : 'text-slate-200'}`}>{title}</h4>
          <p className="text-slate-500 text-[10px] truncate">{desc}</p>
     </div>
 );
