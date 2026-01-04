@@ -60,9 +60,9 @@ export const AdvancedCRMPreview = ({ t }) => {
          <motion.div 
            whileHover={{ scale: 1.05 }}
            whileTap={{ scale: 0.95 }}
-           className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20 mb-8 shrink-0 cursor-pointer"
+           className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20 mb-8 shrink-0 cursor-pointer overflow-hidden p-1.5"
          >
-           S
+           <img src="/logo.png" alt="S" className="w-full h-full object-contain brightness-0 invert" />
          </motion.div>
          
          <div className="flex flex-col gap-6 w-full px-3">

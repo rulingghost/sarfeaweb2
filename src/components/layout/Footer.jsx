@@ -11,8 +11,8 @@ export const Footer = ({ t, setActivePage }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
-            <div className="flex items-center gap-2.5">
-              <div className="w-11 h-11 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-900/50">S</div>
+            <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActivePage('home')}>
+              <img src="/logo.png" alt="SARFEA Logo" className="h-10 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-all" />
               <span className="text-2xl font-black tracking-tighter">SARFEA<span className="text-blue-500">.</span></span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed font-medium">

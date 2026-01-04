@@ -6,7 +6,7 @@ export const SEO = ({ title, description, keywords, image, url, type = "website"
   const defaultDescription = "Sarfea, işletmeniz için özel CRM, ERP, Mobil Uygulama ve Web Platformları kodlar. Dijital dönüşümde lider yazılım ortağınız.";
   const defaultKeywords = "crm yazılımı, erp sistemleri, dijital dönüşüm, özel yazılım geliştirme, kurumsal yazılım, mobil uygulama yapan firmalar, sarfea, yazılım teknolojileri, bulut tabanlı crm, işletme otomasyonu";
   const siteUrl = "https://sarfea.com.tr"; // Gerçek domain ile değiştirilmelidir
-  const defaultImage = "https://sarfea.com.tr/og-image.jpg"; // Varsayılan paylaşım görseli
+  const defaultImage = "https://sarfea.com.tr/logo.png"; // Varsayılan paylaşım görseli (logo.png kullanılıyor)
 
   const fullTitle = title ? `${title} | SARFEA` : siteTitle;
   const fullDescription = description || defaultDescription;
