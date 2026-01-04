@@ -49,7 +49,16 @@ export const translations = {
       system_status: "Sistem Durumu",
       uptime: "Uptime",
       integration: "Entegrasyon",
-      api_ready: "API Ready"
+      api_ready: "API Ready",
+      blog: "Blog & İçgörü"
+    },
+    blog_page: {
+      title: "Teknoloji ve İçgörüler",
+      subtitle: "Sektörel trendler, teknik makaleler ve başarı hikayelerimiz.",
+      read_more: "Devamını Oku",
+      back_to_blog: "Blog'a Dön",
+      share: "Paylaş",
+      published_at: "Yayınlanma Tarihi"
     },
     stats_section: {
       title: "Entegre Çalıştığımız Devler",
