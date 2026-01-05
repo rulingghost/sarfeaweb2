@@ -58,7 +58,10 @@ export const translations = {
       sector: "Sektör",
       search_placeholder: "Ara (Cmd+K)...",
       reply: "Yanıtla",
-      connected: "Ses Bağlantısı Aktif"
+      connected: "Ses Bağlantısı Aktif",
+      system_status: "Sistem Durumu",
+      uptime: "Uptime",
+      integration: "Entegrasyon"
     },
     blog_page: {
       title: "Teknoloji ve İçgörüler",
@@ -337,7 +340,10 @@ export const translations = {
         sector: "Sector",
         search_placeholder: "Search (Cmd+K)...",
         reply: "Reply",
-        connected: "Audio Connection Active"
+        connected: "Audio Connection Active",
+        system_status: "System Status",
+        uptime: "Uptime",
+        integration: "Integration"
       },
       stats_section: {
         title: "Giants We Integrate With",

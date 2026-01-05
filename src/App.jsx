@@ -88,7 +88,23 @@ function App() {
     const saved = localStorage.getItem('language');
     return LANGUAGES.some(l => l.code === saved) ? saved : 'tr';
   });
-  const t = translations[language] || translations['tr'];
+
+  // Safe translation getter with fallback
+  const t = useMemo(() => {
+    const base = translations['tr'];
+    const current = translations[language] || translations['tr'];
+    
+    // Simple deep merge for the 1st level of objects
+    const merged = { ...base };
+    Object.keys(current).forEach(key => {
+      if (typeof current[key] === 'object' && !Array.isArray(current[key]) && current[key] !== null) {
+        merged[key] = { ...base[key], ...current[key] };
+      } else {
+        merged[key] = current[key];
+      }
+    });
+    return merged;
+  }, [language]);
 
   useEffect(() => {
     localStorage.setItem('language', language);
