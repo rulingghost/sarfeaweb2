@@ -46,7 +46,7 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
                {language.toUpperCase()}
             </button>
             <div className="absolute top-full right-0 pt-2 w-32 hidden group-hover/lang:block animate-in fade-in slide-in-from-top-2">
-              <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+              <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden max-h-64 overflow-y-auto no-scrollbar">
                 {[...LANGUAGES].sort((a, b) => a.code === 'tr' ? -1 : 1).map((lang) => (
                   <button
                     key={lang.code}
