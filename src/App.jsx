@@ -8,7 +8,6 @@ import { LANGUAGES } from './constants';
 // Layout
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { Footer } from './components/layout/Footer';
 
 // Sections & Features
 import { Newsletter } from './components/sections/Newsletter';
