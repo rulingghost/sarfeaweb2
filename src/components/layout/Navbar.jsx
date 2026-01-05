@@ -22,16 +22,6 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {/* Command Search Trigger */}
-          <button 
-            onClick={() => setIsCommandMenuOpen(true)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-all border border-slate-200 dark:border-slate-700"
-          >
-            <Search size={16} />
-            <span className="text-xs font-medium">Ara...</span>
-            <span className="text-[10px] bg-white dark:bg-slate-700 px-1 rounded border border-slate-300 dark:border-slate-600 font-bold ml-2">⌘K</span>
-          </button>
-          
           {NAV_ITEMS.map((item) => (
             <button 
               key={item.id}
