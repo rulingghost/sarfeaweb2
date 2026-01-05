@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { FAQAccordion } from '../ui/FAQAccordion';
+import { Search } from 'lucide-react';
 
 export const FaqSection = ({ t }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredFaqs = useMemo(() => {
+    if (!searchTerm) return t.faq.questions;
+    return t.faq.questions.filter(faq => 
+      faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, t.faq.questions]);
+
   return (
     <section className="py-32 bg-slate-50 dark:bg-slate-950/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,7 +21,26 @@ export const FaqSection = ({ t }) => {
           title={t.faq.title} 
           subtitle={t.faq.subtitle} 
         />
-        <FAQAccordion faqs={t.faq.questions} />
+        
+        <div className="mb-10 relative max-w-md mx-auto">
+            <input 
+                type="text" 
+                placeholder="Sorunuzu arayın..." 
+                className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm focus:ring-4 focus:ring-blue-500/5 outline-none transition-all"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+        </div>
+
+        {filteredFaqs.length > 0 ? (
+            <FAQAccordion faqs={filteredFaqs} />
+        ) : (
+            <div className="text-center py-10 text-slate-500">
+                <p>Eşleşen bir sonuç bulunamadı.</p>
+                <button onClick={() => setSearchTerm('')} className="text-blue-600 font-bold mt-2">Tümünü Göster</button>
+            </div>
+        )}
       </div>
     </section>
   );

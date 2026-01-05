@@ -8,9 +8,28 @@ import { Reveal } from '../components/ui/Reveal';
 
 export const Contact = ({ t, language, onShowToast }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', projectType: 'Custom Software / CRM / ERP' });
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Ad soyad gerekli";
+    if (!formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) newErrors.email = "Geçerli bir e-posta girin";
+    if (formData.message.length < 10) newErrors.message = "Lütfen biraz daha detay verin (en az 10 karakter)";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+  };
 
   const handleContactSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
     setIsSubmitting(true);
 
     const formData = new FormData(e.target);
@@ -60,11 +79,29 @@ export const Contact = ({ t, language, onShowToast }) => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t.contact_page.form.name}</label>
-                    <input required name="name" type="text" className="w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium" placeholder={t.contact_page.form.name_ph} />
+                    <input 
+                      required 
+                      name="name" 
+                      type="text" 
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.name ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium`} 
+                      placeholder={t.contact_page.form.name_ph} 
+                    />
+                    {errors.name && <p className="text-red-500 text-xs ml-1 font-bold">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t.contact_page.form.email}</label>
-                    <input required name="email" type="email" className="w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium" placeholder={t.contact_page.form.email_ph} />
+                    <input 
+                      required 
+                      name="email" 
+                      type="email" 
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.email ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium`} 
+                      placeholder={t.contact_page.form.email_ph} 
+                    />
+                    {errors.email && <p className="text-red-500 text-xs ml-1 font-bold">{errors.email}</p>}
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -87,7 +124,16 @@ export const Contact = ({ t, language, onShowToast }) => {
                 </div>
                 <div className="space-y-2">
                   <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t.contact_page.form.details}</label>
-                  <textarea required name="message" rows="5" className="w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium resize-none" placeholder={t.contact_page.form.details_ph}></textarea>
+                  <textarea 
+                    required 
+                    name="message" 
+                    rows="5" 
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={`w-full px-5 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.message ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium resize-none`} 
+                    placeholder={t.contact_page.form.details_ph}
+                  ></textarea>
+                  {errors.message && <p className="text-red-500 text-xs ml-1 font-bold">{errors.message}</p>}
                 </div>
                 <button disabled={isSubmitting} type="submit" className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-70 disabled:cursor-not-allowed text-white py-5 rounded-xl font-bold transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-3 active:scale-[0.98]">
                   {isSubmitting ? (

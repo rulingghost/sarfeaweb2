@@ -2,9 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { SEO } from '../components/ui/SEO';
-import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
+import { Calendar, ArrowRight, BookOpen, Search, Hash } from 'lucide-react';
+import { useState, useMemo } from 'react';
 
 export const Blog = ({ setActivePage, t, language }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTag, setSelectedTag] = useState('all');
+
+  // Extract all unique tags
+  const allTags = useMemo(() => {
+    const tags = new Set(BLOG_POSTS.flatMap(post => post.tags));
+    return ['all', ...Array.from(tags)];
+  }, []);
+
+  const filteredPosts = BLOG_POSTS.filter(post => {
+    const matchesSearch = post.title?.[language]?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          post.title?.['en']?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag === 'all' || post.tags.includes(selectedTag);
+    return matchesSearch && matchesTag;
+  });
+
   return (
     <section className="pt-32 pb-20 px-4 min-h-screen">
       <SEO 
@@ -42,8 +59,36 @@ export const Blog = ({ setActivePage, t, language }) => {
           </motion.p>
         </div>
 
+        {/* Search & Filter */}
+        <div className="mb-12 flex flex-col items-center gap-6">
+            <div className="relative w-full max-w-lg">
+                <input 
+                    type="text" 
+                    placeholder="Blog yazılarında ara..." 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-6 py-4 pl-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
+                />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-2">
+                {allTags.map(tag => (
+                    <button
+                        key={tag}
+                        onClick={() => setSelectedTag(tag)}
+                        className={`px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 ${selectedTag === tag ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105' : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
+                    >
+                        {tag !== 'all' && <Hash size={14} className="opacity-50" />}
+                        {tag === 'all' ? (language === 'en' ? 'All' : 'Tümü') : tag}
+                    </button>
+                ))}
+            </div>
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {BLOG_POSTS.slice(0, 12).map((post, index) => (
+          {filteredPosts.length > 0 ? (
+             filteredPosts.slice(0, 12).map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
@@ -88,7 +133,13 @@ export const Blog = ({ setActivePage, t, language }) => {
                 </button>
               </div>
             </motion.article>
-          ))}
+          ))
+          ) : (
+            <div className="col-span-full py-20 text-center text-slate-500">
+                <p className="text-xl font-medium">Sonuç bulunamadı.</p>
+                <button onClick={() => {setSearchTerm(''); setSelectedTag('all')}} className="mt-4 text-blue-600 hover:underline">Filtreleri Temizle</button>
+            </div>
+          )}
         </div>
 
         {/* SEO Uzay Yakıtı (SEO Cloud) - Gizli ama Google Tarar */}

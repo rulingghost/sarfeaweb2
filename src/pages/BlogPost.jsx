@@ -107,13 +107,45 @@ export const BlogPost = ({ postId, setActivePage, t, language }) => {
                         <p className="text-xs text-slate-500">Tech & Innovation</p>
                     </div>
                 </div>
-                <button className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors">
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert("Makale bağlantısı kopyalandı!");
+                  }}
+                  className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors"
+                >
                     <Share2 size={20} />
-                    <span className="text-sm font-medium">{t?.blog_page?.share || "Share"}</span>
+                    <span className="text-sm font-medium uppercase tracking-wider">{t?.blog_page?.share || "Paylaş"}</span>
                 </button>
             </div>
           </div>
         </motion.article>
+
+        {/* Related Posts */}
+        <div className="mt-20">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">{t?.blog_page?.related_posts || "Benzer Yazılar"}</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+                {BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 2).map((p, i) => (
+                    <motion.div 
+                        key={p.id}
+                        initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        onClick={() => setActivePage(`blog-post-${p.id}`)}
+                        className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer group"
+                    >
+                        <div className="flex gap-4">
+                            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+                                <img src={p.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+                            <div className="flex flex-col justify-center">
+                                <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1">{p.tags[0]}</span>
+                                <h4 className="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">{p.title[language] || p.title['en']}</h4>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
       </div>
     </div>
   );

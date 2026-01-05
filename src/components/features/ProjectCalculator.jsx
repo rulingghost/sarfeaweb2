@@ -24,8 +24,8 @@ export const ProjectCalculator = ({ isOpen, onClose, onShowToast, t }) => {
 
   const options = staticOptions.map((opt, i) => ({
       ...opt,
-      label: t.calculator.options[i].label,
-      category: t.calculator.options[i].category
+      label: t.calculator.options?.[i]?.label || "Opsiyon",
+      category: t.calculator.options?.[i]?.category || "Kategori"
   }));
 
   const toggleSelection = (option) => {

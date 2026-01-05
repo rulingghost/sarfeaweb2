@@ -4,9 +4,10 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 import { TechStackMarquee } from '../components/ui/TechStackMarquee';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { PricingCard } from '../components/features/PricingCard';
+import { AdvancedCRMPreview } from '../components/features/AdvancedCRMPreview';
 import { Reveal } from '../components/ui/Reveal';
 
-export const Solutions = ({ setActivePage, t }) => {
+export const Solutions = ({ setActivePage, t, language }) => {
   return (
     <div className="pt-28 min-h-screen bg-transparent transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -56,6 +57,19 @@ export const Solutions = ({ setActivePage, t }) => {
               </SpotlightCard>
             </Reveal>
           )})}
+        </div>
+
+        <div className="mb-32">
+          <SectionHeader 
+             title={language === 'en' ? "Advanced Dashboard Experience" : "Gelişmiş Yönetim Paneli Deneyimi"}
+             subtitle={language === 'en' ? "Monitor detailed analytics, team interactions, and project statuses in real-time." : "Detaylı analizler, ekip iletişimi ve proje durumlarını canlı olarak izleyin."}
+          />
+          <Reveal>
+             <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[1.7rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <AdvancedCRMPreview t={t} />
+             </div>
+          </Reveal>
         </div>
 
         <div className="mb-24">
