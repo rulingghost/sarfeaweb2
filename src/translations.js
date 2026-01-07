@@ -132,7 +132,8 @@ export const translations = {
         { title: "İş Akış Otomasyonu (n8n)", desc: "n8n ve Make ile sıkıcı işlerinizi otomatikleştirin, zaman kazanın.", tags: ["n8n", "Make", "Workflow"] },
         { title: "ERP & CRM Çözümleri", desc: "İş süreçlerinizi ve müşteri ilişkilerinizi tek merkezden yönetin.", tags: ["Yönetim", "Verimlilik", "Otomasyon"] },
         { title: "Dijital Pazarlama", desc: "Marka bilinirliğinizi artıran stratejik reklam ve içerik yönetimi.", tags: ["ADS", "Sosyal Medya", "Strateji"] },
-        { title: "Yapay Zeka (AI)", desc: "Verilerinizden anlamlı içgörüler çıkaran akıllı algoritmalar.", tags: ["ML", "NLP", "Tahminleme"] },
+        { title: "Sosyal Medya Chatbot", desc: "WhatsApp, Instagram ve Telegram'da 7/24 otomatik müşteri desteği ve satış.", tags: ["WhatsApp", "Instagram", "AI Chatbot"] },
+        { title: "Yapay Zeka (AI)", desc: "Verilerinizden anlamlı içgörüler çıkaran ve işinizi akıllandıran algoritmalar.", tags: ["ChatGPT", "ML", "Otomasyon"] },
         { title: "Kurumsal Yazılım", desc: "Şirketinize özel, ölçeklenebilir ve güvenli yazılım mimarileri.", tags: ["Scalable", "Security", "Cloud"] }
       ]
     },
@@ -407,7 +408,8 @@ export const translations = {
           { title: "Workflow Automation (n8n)", desc: "Automate your tedious tasks with n8n and Make, save time.", tags: ["n8n", "Make", "Workflow"] },
           { title: "ERP & CRM Solutions", desc: "Manage your business processes and customer relations from a single center.", tags: ["Mgmt", "Efficiency", "Automation"] },
           { title: "Digital Marketing", desc: "Strategic advertising and content management that increases brand awareness.", tags: ["ADS", "Social Media", "Strategy"] },
-          { title: "Artificial Intelligence (AI)", desc: "Smart algorithms that extract meaningful insights from your data.", tags: ["ML", "NLP", "Prediction"] },
+          { title: "Social Media Chatbots", desc: "24/7 automated customer support and sales on WhatsApp, Instagram, and Telegram.", tags: ["WhatsApp", "Instagram", "AI Chatbot"] },
+          { title: "Artificial Intelligence (AI)", desc: "Smart algorithms that extract meaningful insights and make your business smarter.", tags: ["ChatGPT", "ML", "Automation"] },
           { title: "Enterprise Software", desc: "Custom-made, scalable and secure software architectures for your company.", tags: ["Scalable", "Security", "Cloud"] }
         ]
       },

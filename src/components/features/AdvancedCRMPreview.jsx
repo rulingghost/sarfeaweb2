@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Users, CreditCard, Settings, 
   Bell, Search, CheckCircle2,
   Briefcase, MessageSquare, Ticket, ChevronRight, Clock, MoreHorizontal, Phone, Mail, Video, Mic, Smartphone,
-  X, Check
+  X, Check, Instagram, MessageCircle
 } from 'lucide-react';
 
 export const AdvancedCRMPreview = ({ t }) => {
@@ -283,9 +283,9 @@ const CustomersView = () => (
 const SupportView = ({ activeTicket, setActiveTicket }) => {
     const tickets = [
         { id: 1, title: "Mert K. (CTO)", desc: "API Entegrasyonu hk.", time: "Şimdi", status: "Görüşülüyor", color: "emerald", type: "call", avatar: "Mert" },
-        { id: 2, title: "Selin Y. (Ops)", desc: "Dosya bekliyor", time: "2dk", status: "Beklemede", color: "blue", type: "mail", avatar: "Selin" },
-        { id: 3, title: "Can T. (Dev)", desc: "Migration onayı", time: "5dk", status: "Chat", color: "purple", type: "chat", avatar: "Can" },
-        { id: 4, title: "Ahmet A. (Mob)", desc: "Log dosyaları", time: "12dk", status: "Chat", color: "purple", type: "chat", avatar: "Ahmet" }
+        { id: 2, title: "WhatsApp Destek", desc: "Yeni sipariş detayı", time: "2dk", status: "Beklemede", color: "green", type: "whatsapp", avatar: "J" },
+        { id: 3, title: "Instagram DM", desc: "Ürün stok bilgisi", time: "5dk", status: "Chat", color: "pink", type: "instagram", avatar: "S" },
+        { id: 4, title: "Can T. (Dev)", desc: "Migration onayı", time: "12dk", status: "Chat", color: "purple", type: "chat", avatar: "Can" }
     ];
 
     const currentTicket = tickets.find(t => t.id === activeTicket) || tickets[0];
@@ -317,8 +317,8 @@ const SupportView = ({ activeTicket, setActiveTicket }) => {
                 <div className="w-20 h-20 rounded-full bg-slate-800 flex items-center justify-center mb-4 relative z-10 ring-4 ring-slate-800 shadow-2xl">
                     <div className={`absolute inset-0 rounded-full border-2 ${currentTicket.type === 'call' ? 'border-emerald-500/30 animate-[ping_2s_linear_infinite]' : 'border-blue-500/10'}`}></div>
                     <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${currentTicket.avatar}`} alt="Avatar" className="w-full h-full rounded-full opacity-90" />
-                    <div className={`absolute bottom-0 right-0 w-6 h-6 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-full border-2 border-slate-800 flex items-center justify-center text-white`}>
-                        {currentTicket.type === 'call' ? <Mic size={12} /> : currentTicket.type === 'chat' ? <MessageSquare size={12}/> : <Mail size={12}/>}
+                    <div className={`absolute bottom-0 right-0 w-6 h-6 ${currentTicket.type === 'call' ? 'bg-emerald-500' : currentTicket.type === 'whatsapp' ? 'bg-green-500' : currentTicket.type === 'instagram' ? 'bg-pink-500' : 'bg-blue-500'} rounded-full border-2 border-slate-800 flex items-center justify-center text-white shadow-lg`}>
+                        {currentTicket.type === 'call' ? <Mic size={12} /> : currentTicket.type === 'whatsapp' ? <MessageCircle size={12}/> : currentTicket.type === 'instagram' ? <Instagram size={12}/> : <MessageSquare size={12}/>}
                     </div>
                 </div>
                 <h4 className="text-slate-100 font-bold text-sm mb-1 relative z-10">{currentTicket.title}</h4>
