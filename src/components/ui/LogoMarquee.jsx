@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Database, Cloud, ShieldCheck, Zap, Cpu, Layers, Server } from 'lucide-react';
+import { Globe, Database, Cloud, ShieldCheck, Zap, Cpu, Layers, Server, GitBranch } from 'lucide-react';
 
 const LOGOS = [
   { icon: Globe, name: "GLOBAL TECH", color: "#4285F4" },
