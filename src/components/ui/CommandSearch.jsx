@@ -41,27 +41,30 @@ export const CommandSearch = ({ isOpen, onClose, setActivePage, t, language }) =
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[120] flex items-start justify-center pt-[10vh] px-4 pointer-events-auto"
+      className="fixed inset-0 z-[120] flex items-start justify-center pt-[5vh] md:pt-[10vh] px-4 pointer-events-auto"
     >
-      <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-md" onClick={onClose} />
       
       <motion.div 
         initial={{ y: -20, opacity: 0, scale: 0.98 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: -20, opacity: 0, scale: 0.98 }}
-        className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 relative z-10"
+        className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 relative z-10"
       >
         <div className="flex items-center px-4 py-4 border-b border-slate-100 dark:border-slate-800">
-          <Search className="text-slate-400 mr-3" size={20} />
+          <Search className="text-slate-400 mr-3 shrink-0" size={20} />
           <input 
             autoFocus
             type="text" 
-            placeholder="Nereye gitmek istersiniz? (Örn: Blog, İletişim...)" 
-            className="flex-1 bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder:text-slate-500 font-medium"
+            placeholder="Nereye gitmek istersiniz?..." 
+            className="flex-1 bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder:text-slate-500 font-medium text-base"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold uppercase tracking-wider">
+          <button onClick={onClose} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors md:hidden text-slate-400">
+             <X size={20} />
+          </button>
+          <div className="hidden md:flex items-center gap-1.5 px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold uppercase tracking-wider">
             Esc
           </div>
         </div>

@@ -10,47 +10,49 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
     const baseUrl = "https://sarfea.com.tr"; // Replace with your actual domain
     
     // Core keywords used for ranking in trending searches
+    // Core keywords used for ranking in trending searches
     const trendingBoost = [
       "2024", "2025", "en iyi", "fiyatları", "ücretsiz analiz", 
-      "bulut tabanlı", "yapay zeka destekli", "hızlı", "güvenilir"
+      "bulut tabanlı", "yapay zeka destekli", "hızlı", "güvenilir",
+      "İstanbul yazılım firmaları", "CRM yazılımı", "ERP sistemleri", "Mobil uygulama geliştirme"
     ].join(", ");
 
     // Page mapping logic
     const pageConfigs = {
       home: {
-        title: t.hero?.title_prefix + " " + t.hero?.title_suffix,
-        description: t.hero?.description,
-        keywords: `crm yazılımı, erp sistemleri, yazılım firması, dijital dönüşüm, ${trendingBoost}`,
+        title: "SARFEA | " + t.hero?.title_prefix + " " + t.hero?.title_suffix,
+        description: "İstanbul merkezli SARFEA Yazılım; işletmeniz için özel CRM, ERP, Mobil Uygulama ve Web Yazılım çözümleri üretir. Dijital dönüşümde güvenilir ortağınız.",
+        keywords: `yazılım firması, istanbul yazılım, crm yazılımı, erp sistemleri, dijital dönüşüm danışmanlığı, ${trendingBoost}`,
         url: "",
       },
       solutions: {
-        title: t.solutions_page?.title,
-        description: t.solutions_page?.subtitle,
-        keywords: `yazılım çözümleri, mobil uygulama, e-ticaret altyapısı, sistem entegrasyonu, ${trendingBoost}`,
+        title: t.solutions_page?.title + " | Kurumsal Çözümler",
+        description: "İşletmenizi geleceğe taşıyacak CRM, ERP, Mobil Uygulama ve E-Ticaret altyapıları. SARFEA ile dijitalleşin ve verimliliğinizi artırın.",
+        keywords: `yazılım çözümleri, mobil uygulama geliştirme, e-ticaret yazılımı, sistem entegrasyonu, crm sistemleri, ${trendingBoost}`,
         url: "solutions",
       },
       process: {
-        title: t.process_page?.title,
-        description: t.process_page?.subtitle,
-        keywords: `yazılım geliştirme süreci, agile development, çevik yazılım, proje aşamaları, ${trendingBoost}`,
+        title: t.process_page?.title + " | Nasıl Çalışıyoruz?",
+        description: "Yazılım geliştirme sürecimiz: Analizden yayına kadar şeffaf, çevik (Agile) ve kalite odaklı bir yaklaşım. Projenizi profesyonel ellerle hayata geçirin.",
+        keywords: `yazılım süreci, proje yönetimi, agile yazılım geliştirme, yazılım danışmanlığı, ${trendingBoost}`,
         url: "process",
       },
       about: {
-        title: t.about_page?.title,
-        description: t.about_page?.subtitle,
-        keywords: `sarfea hakkında, biz kimiz, vizyon misyon, yazılım ekibi, ${trendingBoost}`,
+        title: t.about_page?.title + " | Biz Kimiz?",
+        description: "SARFEA Yazılım Teknolojileri olarak vizyonumuz; kurumların dijital kaslarını güçlendirmek. Ekibimiz ve değerlerimiz hakkında daha fazla bilgi edinin.",
+        keywords: `sarfea yazılım, yazılım ekibi, kurumsal profil, teknoloji vizyonu, istanbul yazılım şirketleri, ${trendingBoost}`,
         url: "about",
       },
       contact: {
-        title: t.contact_page?.title,
-        description: t.contact_page?.subtitle,
-        keywords: `iş birliği, yazılım teklifi al, crm fiyat al, erp uzmanı, iletişim, ${trendingBoost}`,
+        title: t.contact_page?.title + " | Teklif Alın",
+        description: "Projeniz için ücretsiz analiz ve fiyat teklifi alın. SARFEA uzmanlarıyla iletişime geçin, dijital yolculuğunuzu başlatalım.",
+        keywords: `yazılım teklifi al, crm fiyatları, erp danışmanlığı, iletişim, yazılım ajansı, ${trendingBoost}`,
         url: "contact",
       },
       blog: {
-        title: t.blog_page?.title,
-        description: t.blog_page?.subtitle,
-        keywords: `teknoloji haberleri, yazılım dünyası, dijital trendler, crm rehberi, erp ipuçları, ${trendingBoost}`,
+        title: "Teknoloji Rehberi & Blog | SARFEA",
+        description: "CRM, ERP, Yapay Zeka ve dijital dönüşüm dünyasından en güncel haberler, ipuçları ve sektörel rehberler.",
+        keywords: `teknoloji blogu, yazılım makaleleri, crm rehberi, erp ipuçları, dijital trendler 2025, ${trendingBoost}`,
         url: "blog",
       }
     };
@@ -64,31 +66,50 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          "name": "SARFEA",
+          "name": "SARFEA Yazılım Teknolojileri A.Ş.",
+          "alternateName": "Sarfea Software",
           "url": baseUrl,
           "logo": {
             "@type": "ImageObject",
-            "url": `${baseUrl}/logo.png`
+            "url": `${baseUrl}/logo.png`,
+            "width": 512,
+            "height": 512
+          },
+          "image": `${baseUrl}/logo.png`,
+          "description": "Özel yazılım geliştirme, CRM ve ERP çözümleri sunan teknoloji firması.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "TR"
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+90-501-571-5767", // Real phone number
-            "contactType": "customer service",
-            "areaServed": "TR",
+            "telephone": "+90-501-571-5767",
+            "contactType": "sales",
+            "areaServed": "Global",
             "availableLanguage": ["Turkish", "English", "Arabic"]
-          }
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/sarfea",
+            "https://www.instagram.com/sarfeayazilim",
+            "https://twitter.com/sarfea"
+          ]
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           "url": baseUrl,
-          "name": "SARFEA Yazılım Teknolojileri",
-          "publisher": { "@id": `${baseUrl}/#organization` },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": `${baseUrl}/search?q={search_term_string}`,
-            "query-input": "required name=search_term_string"
-          }
+          "name": "SARFEA",
+          "publisher": { "@id": `${baseUrl}/#organization` }
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${baseUrl}/${activePage}#webpage`,
+          "url": `${baseUrl}/${activePage}`,
+          "name": currentConfig.title,
+          "isPartOf": { "@id": `${baseUrl}/#website` },
+          "description": currentConfig.description,
+          "inLanguage": language === 'tr' ? 'tr-TR' : 'en-US'
         },
         {
           "@type": "BreadcrumbList",
@@ -96,7 +117,7 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
             {
               "@type": "ListItem",
               "position": 1,
-              "item": { "@id": baseUrl, "name": t.navbar?.home }
+              "item": { "@id": baseUrl, "name": t.navbar?.home || "Ana Sayfa" }
             },
             ...(activePage !== 'home' ? [{
               "@type": "ListItem",
@@ -104,7 +125,26 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
               "item": { "@id": `${baseUrl}/${activePage}`, "name": currentConfig.title }
             }] : [])
           ]
-        }
+        },
+        // FAQ Schema for Home Page
+        ...(activePage === 'home' ? [{
+          "@type": "FAQPage",
+          "mainEntity": (t.faq?.questions || []).map(q => ({
+            "@type": "Question",
+            "name": q.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": q.answer
+            }
+          }))
+        }] : []),
+        // Service Schema for Solutions Page
+        ...(activePage === 'solutions' ? (t.solutions_page?.items || []).map((item, idx) => ({
+          "@type": "Service",
+          "name": item.title,
+          "description": item.desc,
+          "provider": { "@id": `${baseUrl}/#organization` }
+        })) : [])
       ]
     };
 

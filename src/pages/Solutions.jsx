@@ -59,7 +59,7 @@ export const Solutions = ({ setActivePage, t, language }) => {
           )})}
         </div>
 
-        <div className="mb-32">
+        <div className="mb-32 hidden md:block">
           <SectionHeader 
              title={language === 'en' ? "Advanced Dashboard Experience" : "Gelişmiş Yönetim Paneli Deneyimi"}
              subtitle={language === 'en' ? "Monitor detailed analytics, team interactions, and project statuses in real-time." : "Detaylı analizler, ekip iletişimi ve proje durumlarını canlı olarak izleyin."}

@@ -18,7 +18,7 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
       {isScrolled && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => handleNavClick('home')}>
-          <img src={darkMode ? logoDarkImage : logoImage} alt="SARFEA Logo" className="h-9 md:h-11 w-auto object-contain transition-all duration-300" />
+          <img src={darkMode ? logoDarkImage : logoImage} alt="SARFEA Logo" className="h-10 md:h-12 w-auto object-contain transition-all duration-300" />
         </div>
 
         <div className="hidden md:flex items-center gap-8">
