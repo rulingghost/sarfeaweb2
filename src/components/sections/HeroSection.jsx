@@ -45,7 +45,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
               {t.hero.tag}
             </div>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] px-2 sm:px-0">
+            <h1 className="text-[1.65rem] sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2] px-2 sm:px-0">
               {t.hero.title_prefix} <br className="hidden sm:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
                 {t.hero.title_suffix}
@@ -90,10 +90,10 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative hidden lg:block perspective-1000"
+            className="relative block lg:block perspective-1000 mt-12 lg:mt-0"
           >
             <TiltContainer>
-                <div className="relative z-10 bg-[#0f172a] rounded-[2rem] p-0 shadow-2xl shadow-blue-900/40 border-4 border-slate-800 transition-all duration-300 group overflow-hidden">
+                <div className="relative z-10 bg-[#0f172a] rounded-[1.5rem] md:rounded-[2rem] p-0 shadow-2xl shadow-blue-900/40 border-2 md:border-4 border-slate-800 transition-all duration-300 group overflow-hidden">
                     <AdvancedCRMPreview t={t} />
                 </div>
             </TiltContainer>
@@ -101,7 +101,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
             <motion.div 
               animate={{ y: [0, -15, 0], rotate: [0, 2, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-12 -right-12 glass-v2 p-5 rounded-3xl z-20 group hover:border-green-200 dark:hover:border-green-900/50 transition-colors pointer-events-none"
+              className="absolute -top-12 -right-12 glass-v2 p-5 rounded-3xl z-20 group hover:border-green-200 dark:hover:border-green-900/50 transition-colors pointer-events-none hidden xl:block"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-green-500/30">
@@ -117,7 +117,7 @@ export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
             <motion.div 
               animate={{ y: [0, 20, 0], rotate: [0, -2, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute bottom-16 -left-12 glass-v2 p-5 rounded-3xl z-20 group hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors pointer-events-none"
+              className="absolute bottom-16 -left-12 glass-v2 p-5 rounded-3xl z-20 group hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors pointer-events-none hidden xl:block"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">

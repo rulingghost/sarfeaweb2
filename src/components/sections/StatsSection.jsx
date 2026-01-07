@@ -27,11 +27,11 @@ export const StatsSection = ({ t }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-center">
             <Reveal>
-              <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 md:mb-8 tracking-tight leading-tight text-center lg:text-left">
-                {t.stats_section.main_title_prefix} <br className="hidden sm:block"/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">{t.stats_section.main_title_suffix}</span>
+              <h2 className="text-[1.35rem] sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 md:mb-8 tracking-tight leading-tight text-center lg:text-left">
+                {t.stats_section.main_title_prefix}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">{t.stats_section.main_title_suffix}</span>
               </h2>
-              <p className="text-base md:text-xl text-slate-600 dark:text-slate-400 mb-8 md:mb-12 leading-relaxed font-medium text-center lg:text-left">
+              <p className="text-sm md:text-xl text-slate-600 dark:text-slate-400 mb-8 md:mb-12 leading-relaxed font-medium text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
                 {t.stats_section.description}
               </p>
               

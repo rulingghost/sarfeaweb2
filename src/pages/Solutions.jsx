@@ -59,18 +59,7 @@ export const Solutions = ({ setActivePage, t, language }) => {
           )})}
         </div>
 
-        <div className="mb-32 hidden md:block">
-          <SectionHeader 
-             title={language === 'en' ? "Advanced Dashboard Experience" : "Gelişmiş Yönetim Paneli Deneyimi"}
-             subtitle={language === 'en' ? "Monitor detailed analytics, team interactions, and project statuses in real-time." : "Detaylı analizler, ekip iletişimi ve proje durumlarını canlı olarak izleyin."}
-          />
-          <Reveal>
-             <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[1.7rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <AdvancedCRMPreview t={t} />
-             </div>
-          </Reveal>
-        </div>
+
 
         <div className="mb-24">
           <SectionHeader 
