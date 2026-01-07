@@ -66,7 +66,7 @@ export const Solutions = ({ setActivePage, t, language }) => {
             title={t.pricing.title} 
             subtitle={t.pricing.subtitle} 
           />
-          <div className="grid md:grid-cols-3 gap-10 items-start">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-10 items-stretch">
             <PricingCard 
               onSelect={() => setActivePage('contact')}
               plan={t.pricing.plans[0]} 
