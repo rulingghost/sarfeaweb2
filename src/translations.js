@@ -101,6 +101,7 @@ export const translations = {
     faq: {
       title: "Merak Edilenler",
       subtitle: "Teknik süreçler ve işleyiş hakkında sık sorulan sorular.",
+      search_ph: "Sorunuzu arayın...",
       questions: [
         {
           question: "Özel bir modüle ihtiyacımız var, geliştirebilir misiniz?",
@@ -375,6 +376,7 @@ export const translations = {
       faq: {
         title: "FAQ",
         subtitle: "Frequently asked questions about technical processes and operations.",
+        search_ph: "Search your question...",
         questions: [
           {
             question: "We need a custom module, can you develop it?",
@@ -646,6 +648,7 @@ export const translations = {
     faq: {
       title: "أسئلة شائعة",
       subtitle: "الأسئلة المتكررة حول العمليات الفنية وتدفق العمل.",
+      search_ph: "ابحث عن سؤالك...",
       questions: [
         {
           question: "نحتاج إلى وحدة خاصة، هل يمكنكم تطويرها؟",
