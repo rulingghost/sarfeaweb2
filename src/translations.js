@@ -126,14 +126,14 @@ export const translations = {
       title: "Geniş Hizmet Yelpazemiz",
       subtitle: "İhtiyacınız olan teknoloji ne olursa olsun, uzman ekibimizle yanınızdayız.",
       items: [
-        { title: "Web Platformları", desc: "Kurumsal, hızlı ve ölçeklenebilir web uygulamaları.", tags: ["React", "Next.js", "PWA"] },
-        { title: "Mobil Uygulama", desc: "iOS ve Android dünyasında yerinizi alın.", tags: ["React Native", "Flutter", "Swift"] },
-        { title: "E-Ticaret & B2B", desc: "Satışlarınızı artıran güvenli altyapılar.", tags: ["Pazaryeri Entegrasyonu", "Ödeme"] },
-        { title: "ERP & Stok", desc: "Depo, üretim ve stok süreçlerini optimize edin.", tags: ["Barkod", "Üretim Takip", "Lojistik"] },
-        { title: "CRM Çözümleri", desc: "Müşteri ilişkilerinizi ve satış huninizi yönetin.", tags: ["Pipeline", "Teklif", "Aktivite"] },
-        { title: "Entegrasyon (API)", desc: "Farklı sistemleri birbirine bağlayan köprüler.", tags: ["SAP", "Mikro", "Logo", "Nebim"] },
-        { title: "Yapay Zeka (AI)", desc: "Verilerinizden anlamlı içgörüler çıkarın.", tags: ["ML", "Tahminleme", "Chatbot"] },
-        { title: "IoT Sistemler", desc: "Cihazlarınızı internete bağlayıp yönetin.", tags: ["MQTT", "Sensör", "Otomasyon"] }
+        { title: "Web Tasarımı & UX", desc: "Kullanıcı odaklı, modern ve etkileyici arayüz tasarımları.", tags: ["UI/UX", "Figma", "Modern Design"] },
+        { title: "Mobil Uygulama", desc: "iOS ve Android dünyasında yüksek performanslı native ve cross çözümler.", tags: ["React Native", "Flutter", "Swift"] },
+        { title: "E-Ticaret Sistemleri", desc: "Satışlarınızı dijitalde zirveye taşıyan güvenli altyapılar.", tags: ["B2B & B2C", "Pazaryeri", "Ödeme"] },
+        { title: "SEO & SEO Optimizasyonu", desc: "Arama motorlarında üst sıralara çıkmanızı sağlayan teknik SEO çalışmaları.", tags: ["SEO", "Performans", "Analitik"] },
+        { title: "ERP & CRM Çözümleri", desc: "İş süreçlerinizi ve müşteri ilişkilerinizi tek merkezden yönetin.", tags: ["Yönetim", "Verimlilik", "Otomasyon"] },
+        { title: "Dijital Pazarlama", desc: "Marka bilinirliğinizi artıran stratejik reklam ve içerik yönetimi.", tags: ["ADS", "Sosyal Medya", "Strateji"] },
+        { title: "Yapay Zeka (AI)", desc: "Verilerinizden anlamlı içgörüler çıkaran akıllı algoritmalar.", tags: ["ML", "NLP", "Tahminleme"] },
+        { title: "Kurumsal Yazılım", desc: "Şirketinize özel, ölçeklenebilir ve güvenli yazılım mimarileri.", tags: ["Scalable", "Security", "Cloud"] }
       ]
     },
     pricing: {
@@ -401,14 +401,14 @@ export const translations = {
         title: "Our Wide Range of Services",
         subtitle: "Whatever technology you need, we are with you with our expert team.",
         items: [
-          { title: "Web Platforms", desc: "Corporate, fast, and scalable web applications.", tags: ["React", "Next.js", "PWA"] },
-          { title: "Mobile Application", desc: "Take your place in the iOS and Android world.", tags: ["React Native", "Flutter", "Swift"] },
-          { title: "E-Commerce & B2B", desc: "Secure infrastructures that increase your sales.", tags: ["Marketplace Integration", "Payment"] },
-          { title: "ERP & Stock", desc: "Optimize warehouse, production, and stock processes.", tags: ["Barcode", "Production Tracking", "Logistics"] },
-          { title: "CRM Solutions", desc: "Manage your customer relations and sales funnel.", tags: ["Pipeline", "Offer", "Activity"] },
-          { title: "Integration (API)", desc: "Bridges connecting different systems.", tags: ["SAP", "Mikro", "Logo", "Nebim"] },
-          { title: "Artificial Intelligence (AI)", desc: "Extract meaningful insights from your data.", tags: ["ML", "Prediction", "Chatbot"] },
-          { title: "IoT Systems", desc: "Connect your devices to the internet and manage them.", tags: ["MQTT", "Sensor", "Automation"] }
+          { title: "Web Design & UX", desc: "User-oriented, modern, and impressive interface designs.", tags: ["UI/UX", "Figma", "Modern Design"] },
+          { title: "Mobile Application", desc: "High-performance native and cross solutions in iOS and Android.", tags: ["React Native", "Flutter", "Swift"] },
+          { title: "E-Commerce Systems", desc: "Secure infrastructures that take your sales to the top in digital.", tags: ["B2B & B2C", "Marketplace", "Payment"] },
+          { title: "SEO & SEO Optimization", desc: "Technical SEO work that ensures you rank higher in search engines.", tags: ["SEO", "Performance", "Analytics"] },
+          { title: "ERP & CRM Solutions", desc: "Manage your business processes and customer relations from a single center.", tags: ["Mgmt", "Efficiency", "Automation"] },
+          { title: "Digital Marketing", desc: "Strategic advertising and content management that increases brand awareness.", tags: ["ADS", "Social Media", "Strategy"] },
+          { title: "Artificial Intelligence (AI)", desc: "Smart algorithms that extract meaningful insights from your data.", tags: ["ML", "NLP", "Prediction"] },
+          { title: "Enterprise Software", desc: "Custom-made, scalable and secure software architectures for your company.", tags: ["Scalable", "Security", "Cloud"] }
         ]
       },
       pricing: {
