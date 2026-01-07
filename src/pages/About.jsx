@@ -7,59 +7,54 @@ import { Timeline } from '../components/ui/Timeline';
 
 export const About = ({ t }) => {
   return (
-    <div className="pt-28 min-h-screen bg-transparent transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="pt-20 md:pt-28 min-h-screen bg-transparent transition-colors duration-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <SectionHeader 
           title={t.about_page.title} 
           subtitle={t.about_page.subtitle} 
         />
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-center mb-20 md:mb-32">
           <Reveal>
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/20 group">
-              <div className="absolute inset-0 bg-blue-600/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 group">
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Modern Office" 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                className="w-full aspect-square md:aspect-video object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-6 md:p-10 z-20">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex items-end p-5 md:p-10 z-20">
                 <div className="text-white">
-                  <div className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-3 shadow-sm">{t.about_page.office.tag}</div>
-                  <h3 className="text-3xl font-bold mb-3">{t.about_page.office.location}</h3>
-                  <p className="text-slate-200 font-medium leading-relaxed max-w-md">{t.about_page.office.desc}</p>
+                  <div className="inline-block px-3 py-1 bg-blue-600 rounded-full text-[10px] md:text-xs font-bold mb-2 shadow-sm">{t.about_page.office.tag}</div>
+                  <h3 className="text-xl md:text-3xl font-bold mb-2 md:mb-3">{t.about_page.office.location}</h3>
+                  <p className="text-xs md:text-slate-200 font-medium leading-relaxed max-w-md line-clamp-2 md:line-clamp-none">{t.about_page.office.desc}</p>
                 </div>
               </div>
             </div>
           </Reveal>
           
           <Reveal delay={200}>
-            <div className="space-y-10">
-              <div>
-                 <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                   <span className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-sm"><Rocket size={22}/></span>
+            <div className="space-y-6 md:space-y-10">
+              <div className="text-center lg:text-left">
+                 <h3 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6 flex items-center justify-center lg:justify-start gap-3">
+                   <span className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-sm"><Rocket size={18} className="md:w-5 md:h-5"/></span>
                    {t.about_page.vision.title}
                  </h3>
-                 <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                   <p>
-                     {t.about_page.vision.p1}
-                   </p>
-                   <p>
-                     {t.about_page.vision.p2}
-                   </p>
+                 <div className="space-y-4 md:space-y-6 text-sm md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+                   <p>{t.about_page.vision.p1}</p>
+                   <p>{t.about_page.vision.p2}</p>
                  </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                <SpotlightCard className="p-6 rounded-3xl" color="blue">
-                  <Target className="text-blue-500 mb-4 group-hover:scale-110 transition-transform" size={36} />
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-lg">{t.about_page.values[0].title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 font-medium">{t.about_page.values[0].desc}</p>
+              <div className="grid grid-cols-2 gap-3 md:gap-6 text-center lg:text-left">
+                <SpotlightCard className="p-4 md:p-6 rounded-2xl md:rounded-3xl" color="blue">
+                  <Target className="text-blue-500 mb-3 md:mb-4 mx-auto lg:mx-0" size={28} />
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-1 md:mb-2 text-sm md:text-lg">{t.about_page.values[0].title}</h4>
+                  <p className="text-[10px] md:text-slate-600 dark:text-slate-400 font-medium">{t.about_page.values[0].desc}</p>
                 </SpotlightCard>
-                <SpotlightCard className="p-6 rounded-3xl" color="orange">
-                  <Lightbulb className="text-yellow-500 mb-4 group-hover:scale-110 transition-transform" size={36} />
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-lg">{t.about_page.values[1].title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 font-medium">{t.about_page.values[1].desc}</p>
+                <SpotlightCard className="p-4 md:p-6 rounded-2xl md:rounded-3xl" color="orange">
+                  <Lightbulb className="text-yellow-500 mb-3 md:mb-4 mx-auto lg:mx-0" size={28} />
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-1 md:mb-2 text-sm md:text-lg">{t.about_page.values[1].title}</h4>
+                  <p className="text-[10px] md:text-slate-600 dark:text-slate-400 font-medium">{t.about_page.values[1].desc}</p>
                 </SpotlightCard>
               </div>
             </div>
@@ -74,9 +69,9 @@ export const About = ({ t }) => {
            <Timeline t={t}/>
         </div>
 
-        <div className="mb-24">
-          <h3 className="text-3xl font-extrabold text-center text-slate-900 dark:text-white mb-16 tracking-tight">{t.about_page.solutions_area_title}</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-20 md:mb-24">
+          <h3 className="text-xl md:text-3xl font-extrabold text-center text-slate-900 dark:text-white mb-10 md:mb-16 tracking-tight px-4">{t.about_page.solutions_area_title}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {[
               { icon: Briefcase, color: "blue" },
               { icon: ShoppingBagIcon, color: "green" },
@@ -88,16 +83,17 @@ export const About = ({ t }) => {
               const solution = t.about_page.solution_areas[i];
               return (
               <Reveal key={i} delay={i * 80}>
-                <SpotlightCard className="p-8 rounded-[2rem] h-full flex flex-col" color={config.color}>
-                  <div className={`w-16 h-16 bg-${config.color}-100 dark:bg-${config.color}-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-${config.color}-500/20`}>
-                    <config.icon size={32} className={`text-${config.color}-600 dark:text-${config.color}-400`} />
+                <SpotlightCard className="p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] h-full flex flex-col" color={config.color}>
+                  <div className={`w-12 h-12 md:w-16 md:h-16 bg-${config.color}-100 dark:bg-${config.color}-900/30 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform`}>
+                    <config.icon size={24} className={`text-${config.color}-600 dark:text-${config.color}-400 md:hidden`} />
+                    <config.icon size={32} className={`text-${config.color}-600 dark:text-${config.color}-400 hidden md:block`} />
                   </div>
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{solution.title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1 font-medium">{solution.desc}</p>
-                  <div className="space-y-2">
+                  <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-2 md:mb-3">{solution.title}</h4>
+                  <p className="text-xs md:text-slate-600 dark:text-slate-400 mb-4 md:mb-6 leading-relaxed flex-1 font-medium">{solution.desc}</p>
+                  <div className="space-y-1.5 md:space-y-2">
                     {solution.items.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                        <div className={`w-1.5 h-1.5 rounded-full bg-${config.color}-500`}></div>
+                      <div key={idx} className="flex items-center gap-2 text-[10px] md:text-sm text-slate-500 dark:text-slate-400">
+                        <div className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-${config.color}-500`}></div>
                         <span className="font-medium">{item}</span>
                       </div>
                     ))}

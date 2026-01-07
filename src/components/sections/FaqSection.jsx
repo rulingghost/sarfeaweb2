@@ -15,22 +15,22 @@ export const FaqSection = ({ t }) => {
   }, [searchTerm, t.faq.questions]);
 
   return (
-    <section className="py-32 bg-slate-50 dark:bg-slate-950/50">
+    <section className="py-12 md:py-32 bg-slate-50 dark:bg-slate-950/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
           title={t.faq.title} 
           subtitle={t.faq.subtitle} 
         />
         
-        <div className="mb-10 relative max-w-md mx-auto">
+        <div className="mb-8 md:mb-10 relative max-w-md mx-auto px-2 sm:px-0">
             <input 
                 type="text" 
                 placeholder="Sorunuzu arayın..." 
-                className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm focus:ring-4 focus:ring-blue-500/5 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 md:py-4 rounded-xl md:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm focus:ring-4 focus:ring-blue-500/5 outline-none transition-all text-sm md:text-base"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+            <Search className="absolute left-6 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
         </div>
 
         {filteredFaqs.length > 0 ? (

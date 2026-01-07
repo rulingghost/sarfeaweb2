@@ -26,11 +26,13 @@ body {
 
 /* Global Mobile Font Reductions */
 @layer base {
-  h1 { @apply text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight; }
-  h2 { @apply text-3xl md:text-5xl font-extrabold tracking-tight; }
-  h3 { @apply text-2xl md:text-3xl font-bold; }
-  p { @apply text-base md:text-lg; }
+  h1 { @apply text-3xl md:text-5xl lg:text-7xl font-extrabold tracking-tight; }
+  h2 { @apply text-2xl md:text-5xl font-extrabold tracking-tight; }
+  h3 { @apply text-xl md:text-3xl font-bold; }
+  p { @apply text-sm md:text-lg; }
 }
+
+/* ... styles ... */
 
 /* --- Premium Noise Effect --- */
 .noise-overlay {
@@ -48,7 +50,7 @@ body {
 
 /* --- Premium Solid Cards (Şeffaf Olmayan Kutucuklar) --- */
 .glass-v2 {
-  background: #ffffff; /* Tamamen Katı Beyaz */
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 
     0 10px 40px -10px rgba(0, 0, 0, 0.08),
@@ -56,7 +58,7 @@ body {
 }
 
 .dark .glass-v2 {
-  background: #0f172a; /* Tamamen Katı Koyu Lacivert (Slate 900) */
+  background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 
     0 20px 50px -12px rgba(0, 0, 0, 0.5),
@@ -70,7 +72,7 @@ body {
 }
 
 .dark .spotlight-card-base {
-    background: #1e293b; /* Slate 800 */
+    background: #1e293b;
     border: 1px solid #334155;
 }
 
@@ -92,6 +94,7 @@ body {
   .bento-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
+    gap: 1rem;
   }
 }
 
@@ -104,7 +107,7 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -133,20 +136,29 @@ body {
   animation: blob 10s infinite ease-in-out;
 }
 
-/* Mobile App Styles */
+/* Mobile App Styles Refinements */
 @media (max-width: 768px) {
     .glass-card, .glass-v2, .spotlight-card-base {
-        border-radius: 1.25rem !important;
+        border-radius: 1.5rem !important;
+        padding: 1.25rem !important;
     }
     
+    .section-padding {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
     button {
         -webkit-user-select: none;
         user-select: none;
+        @apply active:scale-95 transition-transform;
     }
 
     body {
-        padding-bottom: calc(85px + var(--iphone-safe-bottom));
+        padding-bottom: calc(70px + var(--iphone-safe-bottom));
     }
+
+    .mobile-hide { display: none !important; }
 }
 
 .perspective-1000 {
