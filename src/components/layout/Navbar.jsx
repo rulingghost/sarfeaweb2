@@ -26,6 +26,7 @@ export const Navbar = ({ activePage, setActivePage, isScrolled, darkMode, setDar
             <button 
               key={item.id}
               onClick={() => handleNavClick(item.id)}
+              title={`${t.navbar[item.labelKey]} - SARFEA`}
               className={`text-[13px] font-bold uppercase tracking-widest transition-all relative group py-2 ${activePage === item.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400'}`}
             >
               {t.navbar[item.labelKey]}

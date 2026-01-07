@@ -110,13 +110,15 @@ export const Contact = ({ t, language, onShowToast }) => {
                      <select name="projectType" className="w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-medium appearance-none cursor-pointer text-sm md:text-base">
                        {[
                          { tr: "Özel Yazılım / CRM / ERP", en: "Custom Software / CRM / ERP" },
+                         { tr: "n8n & İş Akışı Otomasyonu", en: "n8n & Workflow Automation" },
+                         { tr: "SEO & Dijital Büyüme", en: "SEO & Digital Growth" },
+                         { tr: "Web Tasarımı & UX", en: "Web Design & UX" },
+                         { tr: "WhatsApp & Instagram Chatbot", en: "Social Media Chatbot" },
                          { tr: "Mobil Uygulama Geliştirme", en: "Mobile App Development" },
-                         { tr: "Web Sitesi / E-Ticaret", en: "Website / E-Commerce" },
-                         { tr: "Sistem Entegrasyonu", en: "System Integration" },
                          { tr: "Yapay Zeka / IoT", en: "AI / IoT" },
                          { tr: "Diğer", en: "Other" }
                        ].map((opt, i) => (
-                         <option key={i} value={opt[language]}>{opt[language]}</option>
+                         <option key={i} value={opt[language] || opt['tr']}>{opt[language] || opt['tr']}</option>
                        ))}
                      </select>
                      <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={18} />

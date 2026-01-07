@@ -266,7 +266,7 @@ export const translations = {
       continue: "Teklif Oluşturmak İçin Devam Et",
       submit: "Kapsam Teklifini Gönder",
       submitting: "Gönderiliyor...",
-      success: "Kapsam teklifiniz başarıyla alındı. Sizinle iletişime geçeceğiz.",
+      success: "Harika! Kapsam detaylarını aldık. Sarfea teknik ekibi projenizi inceleyip 24 saat içinde sizinle iletişime geçecek.",
       error: "Bir hata oluştu."
     },
     cookie: {
@@ -542,7 +542,7 @@ export const translations = {
         continue: "Continue to Create Offer",
         submit: "Send Scope Offer",
         submitting: "Sending...",
-        success: "Your scope offer has been successfully received. We will contact you.",
+        success: "Great! We've received your scope details. The Sarfea technical team will review your project and contact you within 24 hours.",
         error: "An error occurred."
       },
       cookie: {
@@ -792,15 +792,15 @@ export const translations = {
       step2_title: "نموذج العرض",
       step2_desc: "أدخل تفاصيل الاتصال الخاصة بك، دعنا نرسل عرضك.",
       options: [
-        { label: 'منصة ويب مؤسسية', category: 'منصة' },
-        { label: 'تطبيق جوال أصلي', category: 'منصة' },
-        { label: 'إدارة عملاء/CRM خاص', category: 'برمجيات' },
-        { label: 'إدارة ERP والمخزون', category: 'برمجيات' },
-        { label: 'تكاملات طرف ثالث', category: 'تكامل' },
-        { label: 'أنظمة الدفع', category: 'تكامل' },
-        { label: 'الذكاء الاصطناعي والتحليلات', category: 'تكنولوجيا متقدمة' },
-        { label: 'اتصال IoT والأجهزة', category: 'تكنولوجيا متقدمة' },
-        { label: 'أمان عالي وتسجيل', category: 'بنية تحتية' }
+        { label: 'تصميم ويب يركز على المستخدم', category: 'تصميم' },
+        { label: 'سيو ونمو رقمي', category: 'تسويق' },
+        { label: 'n8n وأتمتة المهام', category: 'أتمتة' },
+        { label: 'روبوت محادثة واتساب وإنستغرام', category: 'اتصال' },
+        { label: 'برمجيات CRM/ERP مخصصة', category: 'برمجيات' },
+        { label: 'تطبيق جوال (iOS/Android)', category: 'منصة' },
+        { label: 'تكامل أنظمة الطرف الثالث', category: 'تكامل' },
+        { label: 'ذكاء اصطناعي وتحليل ذكي', category: 'تكنولوجيا متقدمة' },
+        { label: 'بنية تحتية عالية الأمان', category: 'بنية تحتية' }
       ],
       selected_scope: "النطاق المحدد:",
       no_module: "لم يتم تحديد وحدة.",
@@ -1055,15 +1055,15 @@ export const translations = {
       step2_title: "Formulaire d'Offre",
       step2_desc: "Entrez vos coordonnées, laissez-nous vous envoyer votre offre.",
       options: [
-        { label: 'Plateforme Web Entreprise', category: 'Plateforme' },
-        { label: 'App Mobile Native', category: 'Plateforme' },
-        { label: 'CRM / Gestion Client', category: 'Logiciel' },
-        { label: 'ERP & Gestion Stock', category: 'Logiciel' },
-        { label: 'Intégrations Tiers', category: 'Intégration' },
-        { label: 'Systèmes de Paiement', category: 'Intégration' },
-        { label: 'IA & Analytique', category: 'Technologie Avancée' },
-        { label: 'IoT & Connexion Appareil', category: 'Technologie Avancée' },
-        { label: 'Haute Sécurité & Log', category: 'Infrastructure' }
+        { label: 'Design Web Orienté Utilisateur', category: 'Design' },
+        { label: 'SEO & Croissance Digitale', category: 'Marketing' },
+        { label: 'n8n & Automatisation de Flux', category: 'Automatisation' },
+        { label: 'Chatbot WhatsApp & Instagram', category: 'Communication' },
+        { label: 'Logiciels CRM/ERP Personnalisés', category: 'Logiciel' },
+        { label: 'Application Mobile (iOS/Android)', category: 'Plateforme' },
+        { label: 'Intégration Systèmes Tiers', category: 'Intégration' },
+        { label: 'IA & Analyse Intelligente', category: 'Technologie Avancée' },
+        { label: 'Infrastructure de Haute Sécurité', category: 'Infrastructure' }
       ],
       selected_scope: "Périmètre Sélectionné :",
       no_module: "Aucun module sélectionné.",

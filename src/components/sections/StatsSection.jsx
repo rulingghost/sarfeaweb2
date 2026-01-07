@@ -91,7 +91,7 @@ export const StatsSection = ({ t }) => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-3xl md:rounded-[2.5rem] transform rotate-3 opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Team" 
+                  alt="SARFEA Yazılım Geliştirme ve Dijital Dönüşüm Ekibi" 
                   className="relative rounded-3xl md:rounded-[2.5rem] shadow-2xl border-2 md:border-4 border-white dark:border-slate-800 z-10 transform transition-transform duration-700"
                 />
               </div>

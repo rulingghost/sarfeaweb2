@@ -316,7 +316,7 @@ const SupportView = ({ activeTicket, setActiveTicket }) => {
                 
                 <div className="w-20 h-20 rounded-full bg-slate-800 flex items-center justify-center mb-4 relative z-10 ring-4 ring-slate-800 shadow-2xl">
                     <div className={`absolute inset-0 rounded-full border-2 ${currentTicket.type === 'call' ? 'border-emerald-500/30 animate-[ping_2s_linear_infinite]' : 'border-blue-500/10'}`}></div>
-                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${currentTicket.avatar}`} alt="Avatar" className="w-full h-full rounded-full opacity-90" />
+                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${currentTicket.avatar}`} alt="SARFEA CRM Müşteri Paneli Avatarı" className="w-full h-full rounded-full opacity-90" />
                     <div className={`absolute bottom-0 right-0 w-6 h-6 ${currentTicket.type === 'call' ? 'bg-emerald-500' : currentTicket.type === 'whatsapp' ? 'bg-green-500' : currentTicket.type === 'instagram' ? 'bg-pink-500' : 'bg-blue-500'} rounded-full border-2 border-slate-800 flex items-center justify-center text-white shadow-lg`}>
                         {currentTicket.type === 'call' ? <Mic size={12} /> : currentTicket.type === 'whatsapp' ? <MessageCircle size={12}/> : currentTicket.type === 'instagram' ? <Instagram size={12}/> : <MessageSquare size={12}/>}
                     </div>
