@@ -13,13 +13,21 @@ export const StatsSection = ({ t }) => {
 
   return (
     <>
-      <section className="py-12 md:py-24 bg-transparent relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-28 bg-transparent relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-blue-600/5 dark:bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader 
             title={t.stats_section.title} 
             subtitle={t.stats_section.subtitle} 
           />
-          <LogoMarquee />
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-b from-transparent via-slate-50/50 dark:via-slate-900/10 to-transparent rounded-[3rem] -z-10"></div>
+            <LogoMarquee />
+          </div>
         </div>
       </section>
 
