@@ -201,7 +201,7 @@ function App() {
       <BackgroundEffects />
 
       {/* Main Content Wrapper (Elevated above background) */}
-      <div className="relative z-10 overflow-hidden">
+      <div className="relative z-10 overflow-x-hidden">
         {/* Automated SEO Engine */}
         <DynamicSEO activePage={activePage} language={language} t={t} />
 
