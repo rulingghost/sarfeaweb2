@@ -37,35 +37,37 @@ export const BackgroundEffects = () => {
         }}
       />
       
-      {/* 2. Twinkling Noktalar - Sayı azaltıldı, hız artırıldı */}
+      {/* 2. Twinkling Noktalar - PERFORMANS OPTİMİZE EDİLDİ */}
       <div className="absolute inset-0">
-        {[...Array(40)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={`dot-${i}`}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
-              opacity: [0, 1, 0],
-              scale: [0, 2, 0],
+              opacity: [0, 0.8, 0],
+              scale: [0, 1.5, 0],
             }}
             transition={{
-              duration: Math.random() * 2 + 1,
+              duration: Math.random() * 3 + 2,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
             }}
-            className="absolute w-2 h-2 bg-blue-600/40 dark:bg-blue-400/50 rounded-full blur-[2px]"
+            className="absolute w-2 h-2 bg-blue-600/30 dark:bg-blue-400/40 rounded-full blur-[1px]"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
+              willChange: "opacity, transform"
             }}
           />
         ))}
       </div>
 
-      {/* 3. Floating Code Snippets - Daha Hızlı Akış */}
+      {/* 3. Floating Code Snippets - PERFORMANS OPTİMİZE EDİLDİ */}
       <div className="absolute inset-0 overflow-hidden">
-        {CODE_SNIPPETS.map((code, i) => {
-            const randomLeft = Math.floor(Math.random() * 92);
-            const randomDuration = 12 + Math.random() * 18; // 12-30 saniye (Önceki: 25-60)
+        {CODE_SNIPPETS.slice(0, 8).map((code, i) => {
+            const randomLeft = Math.floor(Math.random() * 85);
+            const randomDuration = 20 + Math.random() * 15;
             const randomDelay = -(Math.random() * randomDuration); 
             
             return (
@@ -74,7 +76,7 @@ export const BackgroundEffects = () => {
                 initial={{ opacity: 0, x: `${randomLeft}vw` }}
                 animate={{ 
                     y: ["110vh", "-20vh"], 
-                    opacity: [0, 1, 1, 0] 
+                    opacity: [0, 0.6, 0.6, 0] 
                 }}
                 transition={{
                     duration: randomDuration,
@@ -82,7 +84,8 @@ export const BackgroundEffects = () => {
                     ease: "linear",
                     delay: randomDelay
                 }}
-                className="absolute font-mono text-[13px] md:text-[15px] whitespace-nowrap text-blue-900/10 dark:text-blue-300/15 font-black uppercase tracking-tighter"
+                className="absolute font-mono text-[12px] md:text-[14px] whitespace-nowrap text-blue-900/8 dark:text-blue-300/12 font-bold uppercase tracking-tight"
+                style={{ willChange: "transform" }}
                 >
                 {code}
                 </motion.div>
@@ -90,22 +93,24 @@ export const BackgroundEffects = () => {
         })}
       </div>
 
-      {/* 4. Mesh Gradient Işıkları - Hızlandırıldı */}
+      {/* 4. Mesh Gradient Işıkları - PERFORMANS OPTİMİZE EDİLDİ */}
       <motion.div
         animate={{
-          x: [0, 200, -150, 0],
-          y: [0, -100, 150, 0],
+          x: [0, 150, -100, 0],
+          y: [0, -80, 120, 0],
         }}
-        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[180px]"
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-blue-500/8 dark:bg-blue-600/12 rounded-full blur-[150px]"
+        style={{ willChange: "transform" }}
       />
       <motion.div
         animate={{
-          x: [0, -150, 100, 0],
-          y: [0, 150, -100, 0],
+          x: [0, -120, 80, 0],
+          y: [0, 120, -80, 0],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-20%] right-[-20%] w-[90%] h-[90%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[180px]"
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[-20%] right-[-20%] w-[90%] h-[90%] bg-purple-500/8 dark:bg-purple-600/12 rounded-full blur-[150px]"
+        style={{ willChange: "transform" }}
       />
     </div>
   );

@@ -1,30 +1,28 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Calculator, Activity, Share2, Star, Cpu, Shield, Zap } from 'lucide-react';
 import { TiltContainer } from '../ui/TiltContainer';
 import { AdvancedCRMPreview } from '../features/AdvancedCRMPreview';
 
 export const HeroSection = ({ navigateTo, onOpenCalculator, t }) => {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  // Parallax efektleri kaldırıldı - performans için
   
-  // Floating elements parallax
-  const yFloating = useTransform(scrollY, [0, 1000], [0, -300]);
-  const rotateFloating = useTransform(scrollY, [0, 1000], [0, 45]);
-
   return (
     <div className="relative min-h-[90vh] md:min-h-screen flex items-center pt-20 md:pt-20 overflow-hidden bg-transparent">
-      {/* Background Parallax Floating Elements */}
+      {/* Background Parallax Floating Elements - Sadece dekoratif, scroll'a bağlı değil */}
       <motion.div 
-        style={{ y: yFloating, rotate: rotateFloating }}
+        animate={{ rotate: [0, 5, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 left-10 opacity-10 dark:opacity-20 hidden 2xl:block"
+        style={{ willChange: "transform" }}
       >
         <Cpu size={120} className="text-blue-500" />
       </motion.div>
       <motion.div 
-        style={{ y: useTransform(scrollY, [0, 1000], [0, 200]), rotate: -20 }}
+        animate={{ rotate: [0, -5, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-1/4 right-20 opacity-10 dark:opacity-20 hidden 2xl:block"
+        style={{ willChange: "transform" }}
       >
         <Shield size={100} className="text-purple-500" />
       </motion.div>

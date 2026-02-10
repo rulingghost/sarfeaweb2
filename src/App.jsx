@@ -119,9 +119,9 @@ function App() {
     restDelta: 0.001
   });
 
-  // Smooth Scroll to Top
+  // Scroll to Top
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' }); // Performans için instant
   };
 
   useEffect(() => {
@@ -133,7 +133,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' }); // Performans için instant
   }, [activePage]);
 
   useEffect(() => {
@@ -201,7 +201,7 @@ function App() {
       <BackgroundEffects />
 
       {/* Main Content Wrapper (Elevated above background) */}
-      <div className="relative z-10 overflow-x-hidden">
+      <div className="relative z-10 overflow-hidden">
         {/* Automated SEO Engine */}
         <DynamicSEO activePage={activePage} language={language} t={t} />
 

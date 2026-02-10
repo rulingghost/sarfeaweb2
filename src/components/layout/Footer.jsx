@@ -12,7 +12,7 @@ export const Footer = ({ t, setActivePage }) => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
             <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActivePage('home')}>
-              <img src="/logo.png" alt="SARFEA Logo" className="h-10 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-all" />
+              <img src="/logo.png" alt="SARFEA Logo" className="h-14 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-all hover:scale-110" />
               <span className="text-2xl font-black tracking-tighter">SARFEA<span className="text-blue-500">.</span></span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed font-medium">

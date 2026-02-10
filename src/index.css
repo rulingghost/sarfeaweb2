@@ -14,9 +14,9 @@ html, body {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* smooth scroll performans sorunlarına neden olur */
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  touch-action: pan-y; /* Sadece dikey scroll */
 }
 
 body {
@@ -27,6 +27,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior-y: none;
+  /* GPU hızlandırması için */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Global Mobile Font Reductions */
