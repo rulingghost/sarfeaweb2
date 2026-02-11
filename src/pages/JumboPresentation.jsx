@@ -279,6 +279,23 @@ export function JumboPresentation({ setActivePage }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
   const [showInSlidePreview, setShowInSlidePreview] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState({});
+
+  // Preload Images
+  useEffect(() => {
+    slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.bg;
+      img.onload = () => {
+        setImagesLoaded(prev => ({ ...prev, [slide.id]: true }));
+      };
+    });
+    // Also preload specific preview images
+    ['/dashboard_preview.jpg'].forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   const nextSlide = () => {
     if (currentSlide < slides.length - 1) {
@@ -314,18 +331,15 @@ export function JumboPresentation({ setActivePage }) {
       </button>
 
       <div className={`presentation-container ${showNotes ? 'notes-active' : ''}`}>
-        {/* Background Orbs */}
-        <div className="glow-orb glow-1"></div>
-        <div className="glow-orb glow-2"></div>
-
-        <AnimatePresence mode="wait">
+        {/* Dynamic Background Layer (Smooth Crossfade) */}
+        <AnimatePresence mode="popLayout">
           <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="slide active"
+            key={`bg-${currentSlide}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="background-overlay"
             style={{ 
               backgroundImage: slide.id === 15 
                 ? `linear-gradient(rgba(5, 6, 10, 0.4), rgba(5, 6, 10, 0.6)), url(${slide.bg})`
@@ -333,7 +347,29 @@ export function JumboPresentation({ setActivePage }) {
               backgroundSize: slide.id === 15 ? 'contain' : 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              position: 'absolute',
+              inset: 0,
+              zIndex: 1,
               filter: slide.id === 16 ? 'blur(15px) scale(1.1)' : 'none'
+            }}
+          />
+        </AnimatePresence>
+
+        {/* Background Orbs */}
+        <div className="glow-orb glow-1"></div>
+        <div className="glow-orb glow-2"></div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="slide active"
+            style={{ 
+              zIndex: 10,
+              background: 'transparent'
             }}
           >
             <div className="slide-content">
