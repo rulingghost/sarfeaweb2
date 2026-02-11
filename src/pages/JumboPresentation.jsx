@@ -483,7 +483,7 @@ export function JumboPresentation({ setActivePage }) {
                     }}
                   >
                     <iframe 
-                      src="/jumbo/index.html" 
+                      src="/jumbo-map/index.html" 
                       title="Jumbo Project" 
                       style={{ width: '100%', height: '100%', border: 'none' }}
                     />

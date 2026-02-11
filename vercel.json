@@ -1,11 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/jumbo/(.*)",
-      "destination": "/jumbo/$1"
+      "source": "/jumbo-map/(.*)",
+      "destination": "/jumbo-map/$1"
     },
     {
-      "source": "/((?!api|jumbo|.*\\..*).*)",
+      "source": "/((?!api|jumbo-map|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
