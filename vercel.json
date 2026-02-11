@@ -1,7 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/jumbo/(.*)",
+      "destination": "/jumbo/$1"
+    },
+    {
+      "source": "/((?!api|jumbo|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
