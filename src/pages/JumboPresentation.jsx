@@ -598,9 +598,11 @@ export function JumboPresentation({ setActivePage }) {
           )}
         </AnimatePresence>
         
-        <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', zIndex: 100, opacity: 0.8 }}>
-           <img src="/sarfea_logo.png" alt="SARFEA Logo" style={{ height: '40px', width: 'auto' }} />
-        </div>
+        {slide.id !== 16 && (
+          <div style={{ position: 'fixed', top: '2.5rem', left: '2.5rem', zIndex: 100, opacity: 0.8 }}>
+             <img src="/sarfea_logo.png" alt="SARFEA Logo" style={{ height: '40px', width: 'auto' }} />
+          </div>
+        )}
       </div>
     </div>
   );
