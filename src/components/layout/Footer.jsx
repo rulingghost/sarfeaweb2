@@ -30,6 +30,12 @@ export const Footer = ({ t, setActivePage }) => {
                   </button>
                 </li>
               ))}
+              <li>
+                <button onClick={() => setActivePage('jumbo')} className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                  Jumbo Sunum
+                </button>
+              </li>
             </ul>
           </div>
           <div>

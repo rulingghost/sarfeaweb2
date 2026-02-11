@@ -28,6 +28,7 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
+import { JumboPresentation } from './pages/JumboPresentation';
 
 function App() {
   const [activePage, setActivePage] = useState(() => {
@@ -175,6 +176,8 @@ function App() {
                 </div>
             </div>
         );
+      case 'jumbo':
+        return <JumboPresentation setActivePage={setActivePage} />;
       default:
           if (activePage.startsWith('blog-post-')) {
             const postId = activePage.replace('blog-post-', '');
