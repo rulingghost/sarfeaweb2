@@ -7,7 +7,7 @@ import { PricingCard } from '../components/features/PricingCard';
 import { AdvancedCRMPreview } from '../components/features/AdvancedCRMPreview';
 import { Reveal } from '../components/ui/Reveal';
 
-export const Solutions = ({ setActivePage, t, language }) => {
+export const Solutions = ({ setActivePage, t }) => {
   return (
     <div className="pt-20 md:pt-28 min-h-screen bg-transparent transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">

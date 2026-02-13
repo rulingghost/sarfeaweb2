@@ -79,7 +79,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 8rem 4rem 4rem 4rem;
   z-index: 2;
 }
 
@@ -112,7 +112,7 @@
 .jumbo-presentation-session h1 {
   font-size: 5rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.2;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, #fff 30%, var(--accent-primary) 100%);
   background-clip: text;
@@ -254,18 +254,15 @@
   top: 2rem;
   right: 2rem;
   z-index: 10000;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  border: none;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
+  padding: 0;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  font-weight: 600;
-  transition: all 0.3s;
+  transition: transform 0.3s;
 }
 
 .close-jumbo:hover {
-  background: rgba(220, 38, 38, 0.8);
-  border-color: rgba(220, 38, 38, 1);
+  transform: scale(1.1);
+  background: transparent;
 }

@@ -53,6 +53,7 @@ body {
 .global-kpis {
     display: flex;
     gap: 20px;
+    margin-top: 60px;
 }
 
 .kpi { display: flex; flex-direction: column; }

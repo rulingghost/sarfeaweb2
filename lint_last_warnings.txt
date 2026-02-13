@@ -1,0 +1,10 @@
+﻿
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\CommandSearch.jsx
+  5:68  error  'language' is defined but never used  no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\pages\JumboPresentation.jsx
+  300:9  warning  The 'nextSlide' function makes the dependencies of useEffect Hook (at line 323) change on every render. To fix this, wrap the definition of 'nextSlide' in its own useCallback() Hook  react-hooks/exhaustive-deps
+  307:9  warning  The 'prevSlide' function makes the dependencies of useEffect Hook (at line 323) change on every render. To fix this, wrap the definition of 'prevSlide' in its own useCallback() Hook  react-hooks/exhaustive-deps
+
+✖ 3 problems (1 error, 2 warnings)
+

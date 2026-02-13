@@ -158,7 +158,7 @@ function App() {
       case 'home':
         return <Home setActivePage={setActivePage} setIsCalculatorOpen={setIsCalculatorOpen} t={t} />;
       case 'solutions':
-        return <Solutions setActivePage={setActivePage} t={t} language={language} />;
+        return <Solutions setActivePage={setActivePage} t={t} />;
       case 'process':
         return <Process t={t} />;
       case 'about':

@@ -14,7 +14,7 @@ export const Contact = ({ t, language, onShowToast }) => {
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Ad soyad gerekli";
-    if (!formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) newErrors.email = "Geçerli bir e-posta girin";
+    if (!formData.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/)) newErrors.email = "Geçerli bir e-posta girin";
     if (formData.message.length < 10) newErrors.message = "Lütfen biraz daha detay verin (en az 10 karakter)";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

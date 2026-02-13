@@ -1,0 +1,171 @@
+﻿
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app.js
+  100:11  error  'L' is not defined  no-undef
+  108:14  error  'L' is not defined  no-undef
+  111:23  error  'L' is not defined  no-undef
+  112:23  error  'L' is not defined  no-undef
+  113:20  error  'L' is not defined  no-undef
+  124:5   error  'L' is not defined  no-undef
+  136:13  error  'L' is not defined  no-undef
+  152:5   error  'L' is not defined  no-undef
+  165:12  error  'L' is not defined  no-undef
+  178:24  error  'L' is not defined  no-undef
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app_enterprise.js
+   18:7   error  'activityLog' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+   87:20  error  'L' is not defined                                                                                  no-undef
+   87:35  error  'L' is not defined                                                                                  no-undef
+   87:56  error  'L' is not defined                                                                                  no-undef
+   88:11  error  'L' is not defined                                                                                  no-undef
+   93:5   error  'L' is not defined                                                                                  no-undef
+   96:21  error  'L' is not defined                                                                                  no-undef
+  102:20  error  'L' is not defined                                                                                  no-undef
+  112:5   error  'L' is not defined                                                                                  no-undef
+  123:22  error  'L' is not defined                                                                                  no-undef
+  129:19  error  'L' is not defined                                                                                  no-undef
+  260:10  error  'drillToRegion' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u         no-unused-vars
+  274:10  error  'showStoreById' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u         no-unused-vars
+  279:10  error  'goBack' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u                no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app_v2.js
+   46:20  error  'L' is not defined                                                                          no-undef
+   46:35  error  'L' is not defined                                                                          no-undef
+   46:56  error  'L' is not defined                                                                          no-undef
+   48:11  error  'L' is not defined                                                                          no-undef
+   64:5   error  'L' is not defined                                                                          no-undef
+   71:5   error  'L' is not defined                                                                          no-undef
+   83:22  error  'L' is not defined                                                                          no-undef
+   89:24  error  'L' is not defined                                                                          no-undef
+  136:10  error  'selectRegion' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\features\AdvancedCRMPreview.jsx
+   10:38  error  't' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  310:85  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  308 |                         <motion.div 
+  309 |                             key={i}
+> 310 |                             animate={currentTicket.type === 'call' ? { height: [10, Math.random() * 60 + 20, 10] } : { height: 5 }}
+      |                                                                                     ^^^^^^^^^^^^^ Cannot call impure function
+  311 |                             transition={{ repeat: Infinity, duration: 0.5 + Math.random() * 0.5 }}
+  312 |                             className={`w-1.5 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-t-sm`}
+  313 |                         />  react-hooks/purity
+  311:77  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  309 |                             key={i}
+  310 |                             animate={currentTicket.type === 'call' ? { height: [10, Math.random() * 60 + 20, 10] } : { height: 5 }}
+> 311 |                             transition={{ repeat: Infinity, duration: 0.5 + Math.random() * 0.5 }}
+      |                                                                             ^^^^^^^^^^^^^ Cannot call impure function
+  312 |                             className={`w-1.5 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-t-sm`}
+  313 |                         />
+  314 |                     ))}                       react-hooks/purity
+  385:45  error  'status' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\layout\Navbar.jsx
+   8:111  error  'setIsCommandMenuOpen' is defined but never used  no-unused-vars
+  55:42   error  'b' is defined but never used                     no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\sections\StatsSection.jsx
+  12:9  error  'yParallax' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\BackgroundEffects.jsx
+  51:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  49 |             }}
+  50 |             transition={{
+> 51 |               duration: Math.random() * 3 + 2,
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  52 |               repeat: Infinity,
+  53 |               delay: Math.random() * 3,
+  54 |               ease: "easeInOut"                                                                                                                                               react-hooks/purity
+  53:22  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  51 |               duration: Math.random() * 3 + 2,
+  52 |               repeat: Infinity,
+> 53 |               delay: Math.random() * 3,
+     |                      ^^^^^^^^^^^^^ Cannot call impure function
+  54 |               ease: "easeInOut"
+  55 |             }}
+  56 |             className="absolute w-2 h-2 bg-blue-600/30 dark:bg-blue-400/40 rounded-full blur-[1px]"                                                                        react-hooks/purity
+  58:23  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  56 |             className="absolute w-2 h-2 bg-blue-600/30 dark:bg-blue-400/40 rounded-full blur-[1px]"
+  57 |             style={{
+> 58 |               top: `${Math.random() * 100}%`,
+     |                       ^^^^^^^^^^^^^ Cannot call impure function
+  59 |               left: `${Math.random() * 100}%`,
+  60 |               willChange: "opacity, transform"
+  61 |             }}                                                             react-hooks/purity
+  59:24  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  57 |             style={{
+  58 |               top: `${Math.random() * 100}%`,
+> 59 |               left: `${Math.random() * 100}%`,
+     |                        ^^^^^^^^^^^^^ Cannot call impure function
+  60 |               willChange: "opacity, transform"
+  61 |             }}
+  62 |           />                                                                                                                                                   react-hooks/purity
+  69:43  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  67 |       <div className="absolute inset-0 overflow-hidden">
+  68 |         {CODE_SNIPPETS.slice(0, 8).map((code, i) => {
+> 69 |             const randomLeft = Math.floor(Math.random() * 85);
+     |                                           ^^^^^^^^^^^^^ Cannot call impure function
+  70 |             const randomDuration = 20 + Math.random() * 15;
+  71 |             const randomDelay = -(Math.random() * randomDuration); 
+  72 |               react-hooks/purity
+  70:41  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  68 |         {CODE_SNIPPETS.slice(0, 8).map((code, i) => {
+  69 |             const randomLeft = Math.floor(Math.random() * 85);
+> 70 |             const randomDuration = 20 + Math.random() * 15;
+     |                                         ^^^^^^^^^^^^^ Cannot call impure function
+  71 |             const randomDelay = -(Math.random() * randomDuration); 
+  72 |             
+  73 |             return (                                        react-hooks/purity
+  71:35  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  69 |             const randomLeft = Math.floor(Math.random() * 85);
+  70 |             const randomDuration = 20 + Math.random() * 15;
+> 71 |             const randomDelay = -(Math.random() * randomDuration); 
+     |                                   ^^^^^^^^^^^^^ Cannot call impure function
+  72 |             
+  73 |             return (
+  74 |                 <motion.div                                                                        react-hooks/purity
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\CommandSearch.jsx
+  16:6  warning  React Hook useMemo has an unnecessary dependency: 'language'. Either exclude it or remove the dependency array                                                                                                                 react-hooks/exhaustive-deps
+  35:6  warning  React Hook useEffect has a missing dependency: 'onClose'. Either include it or remove the dependency array. If 'onClose' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\CustomCursor.jsx
+  23:6  warning  React Hook useEffect has missing dependencies: 'cursorX' and 'cursorY'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\DynamicSEO.jsx
+  142:85  error  'idx' is defined but never used  no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\pages\Contact.jsx
+  17:37  error  Unnecessary escape character: \.  no-useless-escape
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\pages\JumboPresentation.jsx
+  282:10  error    'imagesLoaded' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]|motion/u                                                                                                                                                                        no-unused-vars
+  323:6   warning  React Hook useEffect has missing dependencies: 'nextSlide', 'prevSlide', and 'setActivePage'. Either include them or remove the dependency array. If 'setActivePage' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 54 problems (50 errors, 4 warnings)
+

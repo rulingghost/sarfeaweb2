@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Command, X, ArrowRight, Zap, Calculator, Mail, BookOpen, Layout } from 'lucide-react';
 
-export const CommandSearch = ({ isOpen, onClose, setActivePage, t, language }) => {
+export const CommandSearch = ({ isOpen, onClose, setActivePage, t }) => {
   const [search, setSearch] = useState('');
 
   const navigationItems = useMemo(() => [
@@ -13,7 +13,7 @@ export const CommandSearch = ({ isOpen, onClose, setActivePage, t, language }) =
     { id: 'blog', label: t.navbar.blog, icon: BookOpen, category: 'Navigasyon' },
     { id: 'contact', label: t.navbar.contact, icon: Mail, category: 'Navigasyon' },
     { id: 'calculator', label: 'Fiyat Hesapla', icon: Calculator, category: 'Araçlar', special: 'calculator' },
-  ], [t, language]);
+  ], [t]);
 
   const filteredItems = useMemo(() => {
     if (!search) return navigationItems;
@@ -32,7 +32,7 @@ export const CommandSearch = ({ isOpen, onClose, setActivePage, t, language }) =
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [onClose]);
 
   if (!isOpen) return null;
 

@@ -2160,54 +2160,8 @@ export const translations = {
         error_connection: "هەڵەی پەیوەندی. تکایە ئینتەرنێتەکەت بپشکنە."
     }
   },
-  de: {
-    navbar: {
-      home: "Startseite",
-      solutions: "Technologien",
-      process: "Prozess",
-      about: "Unternehmen",
-      contact: "Kontakt",
-      startProject: "Projekt starten",
-      darkMode: "Dunkelmodus",
-      lightMode: "Lichtmodus"
-    },
-    hero: {
-      tag: "Sarfea Enterprise v5.0 Live",
-      title_prefix: "Grenzenlose",
-      title_suffix: "Digitale Ökosysteme",
-      description: "Web, Mobile, ERP, CRM, KI und IoT Integrationen. Wir codieren alles, was Ihr Unternehmen unter einem Dach braucht.",
-      btn_start: "Jetzt starten",
-      btn_scope: "Umfang definieren",
-      references: "Unternehmensreferenzen"
-    },
-    footer: {
-      rights: "© 2024 Sarfea Software Technologies Inc. Alle Rechte vorbehalten."
-    }
-  },
-  fr: {
-    navbar: {
-      home: "Accueil",
-      solutions: "Technologies",
-      process: "Processus",
-      about: "Entreprise",
-      contact: "Contact",
-      startProject: "Démarrer le projet",
-      darkMode: "Mode sombre",
-      lightMode: "Mode clair"
-    },
-    hero: {
-      tag: "Sarfea Enterprise v5.0 En Direct",
-      title_prefix: "Écosystèmes",
-      title_suffix: "Numériques Illimités",
-      description: "Intégrations Web, Mobile, ERP, CRM, IA et IoT. Nous codons tout ce dont votre entreprise a besoin sous un même toit.",
-      btn_start: "Démarrer maintenant",
-      btn_scope: "Définir le périmètre",
-      references: "Références d'entreprise"
-    },
-    footer: {
-      rights: "© 2024 Sarfea Software Technologies Inc. Tous droits réservés."
-    }
-  },
+
+
   es: {
     navbar: {
       home: "Inicio",
@@ -2232,30 +2186,7 @@ export const translations = {
       rights: "© 2024 Sarfea Software Technologies Inc. Todos los derechos reservados."
     }
   },
-  ru: {
-    navbar: {
-      home: "Главная",
-      solutions: "Технологии",
-      process: "Процесс",
-      about: "Компания",
-      contact: "Контакт",
-      startProject: "Начать проект",
-      darkMode: "Темный режим",
-      lightMode: "Светлый режим"
-    },
-    hero: {
-      tag: "Sarfea Enterprise v5.0 В Эфире",
-      title_prefix: "Безграничные",
-      title_suffix: "Цифровые Экосистемы",
-      description: "Интеграция веб-сайтов, мобильных приложений, ERP, CRM, ИИ и IoT. Мы кодируем все, что нужно вашему бизнесу, под одной крышей.",
-      btn_start: "Начать",
-      btn_scope: "Определить объем",
-      references: "Корпоративные референсы"
-    },
-    footer: {
-      rights: "© 2024 Sarfea Software Technologies Inc. Все права защищены."
-    }
-  },
+
   zh: {
     navbar: {
       home: "首页",

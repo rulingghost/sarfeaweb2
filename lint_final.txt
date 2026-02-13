@@ -1,0 +1,131 @@
+﻿
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app.js
+  100:11  error  'L' is not defined  no-undef
+  108:14  error  'L' is not defined  no-undef
+  111:23  error  'L' is not defined  no-undef
+  112:23  error  'L' is not defined  no-undef
+  113:20  error  'L' is not defined  no-undef
+  124:5   error  'L' is not defined  no-undef
+  136:13  error  'L' is not defined  no-undef
+  152:5   error  'L' is not defined  no-undef
+  165:12  error  'L' is not defined  no-undef
+  178:24  error  'L' is not defined  no-undef
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app_enterprise.js
+   18:7   error  'activityLog' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+   87:20  error  'L' is not defined                                                                                  no-undef
+   87:35  error  'L' is not defined                                                                                  no-undef
+   87:56  error  'L' is not defined                                                                                  no-undef
+   88:11  error  'L' is not defined                                                                                  no-undef
+   93:5   error  'L' is not defined                                                                                  no-undef
+   96:21  error  'L' is not defined                                                                                  no-undef
+  102:20  error  'L' is not defined                                                                                  no-undef
+  112:5   error  'L' is not defined                                                                                  no-undef
+  123:22  error  'L' is not defined                                                                                  no-undef
+  129:19  error  'L' is not defined                                                                                  no-undef
+  260:10  error  'drillToRegion' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u         no-unused-vars
+  274:10  error  'showStoreById' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u         no-unused-vars
+  279:10  error  'goBack' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u                no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\public\jumbo-map\app_v2.js
+   46:20  error  'L' is not defined                                                                          no-undef
+   46:35  error  'L' is not defined                                                                          no-undef
+   46:56  error  'L' is not defined                                                                          no-undef
+   48:11  error  'L' is not defined                                                                          no-undef
+   64:5   error  'L' is not defined                                                                          no-undef
+   71:5   error  'L' is not defined                                                                          no-undef
+   83:22  error  'L' is not defined                                                                          no-undef
+   89:24  error  'L' is not defined                                                                          no-undef
+  136:10  error  'selectRegion' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\BackgroundEffects.jsx
+  30:15  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  28 |   const dots = useMemo(() => [...Array(15)].map((_, i) => ({
+  29 |     id: i,
+> 30 |     duration: Math.random() * 3 + 2,
+     |               ^^^^^^^^^^^^^ Cannot call impure function
+  31 |     delay: Math.random() * 3,
+  32 |     top: Math.random() * 100,
+  33 |     left: Math.random() * 100  react-hooks/purity
+  31:12  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  29 |     id: i,
+  30 |     duration: Math.random() * 3 + 2,
+> 31 |     delay: Math.random() * 3,
+     |            ^^^^^^^^^^^^^ Cannot call impure function
+  32 |     top: Math.random() * 100,
+  33 |     left: Math.random() * 100
+  34 |   })), []);                                                      react-hooks/purity
+  32:10  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  30 |     duration: Math.random() * 3 + 2,
+  31 |     delay: Math.random() * 3,
+> 32 |     top: Math.random() * 100,
+     |          ^^^^^^^^^^^^^ Cannot call impure function
+  33 |     left: Math.random() * 100
+  34 |   })), []);
+  35 |                                                                   react-hooks/purity
+  33:11  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  31 |     delay: Math.random() * 3,
+  32 |     top: Math.random() * 100,
+> 33 |     left: Math.random() * 100
+     |           ^^^^^^^^^^^^^ Cannot call impure function
+  34 |   })), []);
+  35 |
+  36 |   const snippets = useMemo(() => CODE_SNIPPETS.slice(0, 8).map((code, i) => {                         react-hooks/purity
+  37:27  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  35 |
+  36 |   const snippets = useMemo(() => CODE_SNIPPETS.slice(0, 8).map((code, i) => {
+> 37 |     const duration = 20 + Math.random() * 15;
+     |                           ^^^^^^^^^^^^^ Cannot call impure function
+  38 |     return {
+  39 |       id: i,
+  40 |       code,                           react-hooks/purity
+  41:24  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  39 |       id: i,
+  40 |       code,
+> 41 |       left: Math.floor(Math.random() * 85),
+     |                        ^^^^^^^^^^^^^ Cannot call impure function
+  42 |       duration,
+  43 |       delay: -(Math.random() * duration)
+  44 |     };                                                           react-hooks/purity
+  43:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  41 |       left: Math.floor(Math.random() * 85),
+  42 |       duration,
+> 43 |       delay: -(Math.random() * duration)
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  44 |     };
+  45 |   }), []);
+  46 |                                                                                 react-hooks/purity
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\CommandSearch.jsx
+  16:6  warning  React Hook useMemo has an unnecessary dependency: 'language'. Either exclude it or remove the dependency array                                                                                                                 react-hooks/exhaustive-deps
+  35:6  warning  React Hook useEffect has a missing dependency: 'onClose'. Either include it or remove the dependency array. If 'onClose' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\components\ui\CustomCursor.jsx
+  23:6  warning  React Hook useEffect has missing dependencies: 'cursorX' and 'cursorY'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\gebca\Desktop\iş,\sarfea2web\sarfea-app\src\pages\JumboPresentation.jsx
+  323:6  warning  React Hook useEffect has missing dependencies: 'nextSlide', 'prevSlide', and 'setActivePage'. Either include them or remove the dependency array. If 'setActivePage' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 44 problems (40 errors, 4 warnings)
+

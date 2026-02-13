@@ -139,7 +139,7 @@ export const DynamicSEO = ({ activePage, language, t, extraMetadata = {} }) => {
           }))
         }] : []),
         // Service Schema for Solutions Page
-        ...(activePage === 'solutions' ? (t.solutions_page?.items || []).map((item, idx) => ({
+        ...(activePage === 'solutions' ? (t.solutions_page?.items || []).map((item) => ({
           "@type": "Service",
           "name": item.title,
           "description": item.desc,

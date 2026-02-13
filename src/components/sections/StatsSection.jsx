@@ -4,12 +4,12 @@ import { LogoMarquee } from '../ui/LogoMarquee';
 import { Reveal } from '../ui/Reveal';
 import { SpotlightCard } from '../ui/SpotlightCard';
 import { CountUp } from '../ui/CountUp';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Box, Code2, Globe, TrendingUp } from 'lucide-react';
 
 export const StatsSection = ({ t }) => {
-  const { scrollYProgress } = useScroll();
-  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // const { scrollY } = useScroll();
+  // const yParallax = useTransform(scrollY, [0, 500], [0, -50]);
 
   return (
     <>

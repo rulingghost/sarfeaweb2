@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const CODE_SNIPPETS = [
@@ -25,6 +25,27 @@ const CODE_SNIPPETS = [
 ];
 
 export const BackgroundEffects = () => {
+  /* eslint-disable react-hooks/purity */
+  const dots = useMemo(() => [...Array(15)].map((_, i) => ({
+    id: i,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 3,
+    top: Math.random() * 100,
+    left: Math.random() * 100
+  })), []);
+
+  const snippets = useMemo(() => CODE_SNIPPETS.slice(0, 8).map((code, i) => {
+    const duration = 20 + Math.random() * 15;
+    return {
+      id: i,
+      code,
+      left: Math.floor(Math.random() * 85),
+      duration,
+      delay: -(Math.random() * duration)
+    };
+  }), []);
+  /* eslint-enable react-hooks/purity */
+
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none transition-colors duration-500 bg-white dark:bg-slate-950">
       
@@ -39,24 +60,24 @@ export const BackgroundEffects = () => {
       
       {/* 2. Twinkling Noktalar - PERFORMANS OPTİMİZE EDİLDİ */}
       <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
+        {dots.map((dot) => (
           <motion.div
-            key={`dot-${i}`}
+            key={`dot-${dot.id}`}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
               opacity: [0, 0.8, 0],
               scale: [0, 1.5, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: dot.duration,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: dot.delay,
               ease: "easeInOut"
             }}
             className="absolute w-2 h-2 bg-blue-600/30 dark:bg-blue-400/40 rounded-full blur-[1px]"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: `${dot.top}%`,
+              left: `${dot.left}%`,
               willChange: "opacity, transform"
             }}
           />
@@ -65,32 +86,26 @@ export const BackgroundEffects = () => {
 
       {/* 3. Floating Code Snippets - PERFORMANS OPTİMİZE EDİLDİ */}
       <div className="absolute inset-0 overflow-hidden">
-        {CODE_SNIPPETS.slice(0, 8).map((code, i) => {
-            const randomLeft = Math.floor(Math.random() * 85);
-            const randomDuration = 20 + Math.random() * 15;
-            const randomDelay = -(Math.random() * randomDuration); 
-            
-            return (
-                <motion.div
-                key={`floating-code-${i}`}
-                initial={{ opacity: 0, x: `${randomLeft}vw` }}
-                animate={{ 
-                    y: ["110vh", "-20vh"], 
-                    opacity: [0, 0.6, 0.6, 0] 
-                }}
-                transition={{
-                    duration: randomDuration,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: randomDelay
-                }}
-                className="absolute font-mono text-[12px] md:text-[14px] whitespace-nowrap text-blue-900/8 dark:text-blue-300/12 font-bold uppercase tracking-tight"
-                style={{ willChange: "transform" }}
-                >
-                {code}
-                </motion.div>
-            );
-        })}
+        {snippets.map((snippet) => (
+            <motion.div
+            key={`floating-code-${snippet.id}`}
+            initial={{ opacity: 0, x: `${snippet.left}vw` }}
+            animate={{ 
+                y: ["110vh", "-20vh"], 
+                opacity: [0, 0.6, 0.6, 0] 
+            }}
+            transition={{
+                duration: snippet.duration,
+                repeat: Infinity,
+                ease: "linear",
+                delay: snippet.delay
+            }}
+            className="absolute font-mono text-[12px] md:text-[14px] whitespace-nowrap text-blue-900/8 dark:text-blue-300/12 font-bold uppercase tracking-tight"
+            style={{ willChange: "transform" }}
+            >
+            {snippet.code}
+            </motion.div>
+        ))}
       </div>
 
       {/* 4. Mesh Gradient Işıkları - PERFORMANS OPTİMİZE EDİLDİ */}

@@ -7,7 +7,7 @@ import {
   X, Check, Instagram, MessageCircle
 } from 'lucide-react';
 
-export const AdvancedCRMPreview = ({ t }) => {
+export const AdvancedCRMPreview = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [activeTicket, setActiveTicket] = useState(1);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -307,8 +307,8 @@ const SupportView = ({ activeTicket, setActiveTicket }) => {
                     {[...Array(20)].map((_, i) => (
                         <motion.div 
                             key={i}
-                            animate={currentTicket.type === 'call' ? { height: [10, Math.random() * 60 + 20, 10] } : { height: 5 }}
-                            transition={{ repeat: Infinity, duration: 0.5 + Math.random() * 0.5 }}
+                            animate={currentTicket.type === 'call' ? { height: [10, 20 + (i % 5) * 10, 10] } : { height: 5 }}
+                            transition={{ repeat: Infinity, duration: 0.5 + (i % 3) * 0.2 }}
                             className={`w-1.5 ${currentTicket.color === 'emerald' ? 'bg-emerald-500' : 'bg-blue-500'} rounded-t-sm`}
                         />
                     ))}
@@ -382,7 +382,7 @@ const KPICard = ({ title, value, trend, color, icon, progress, pulse }) => (
     </div>
 );
 
-const DealRow = ({ client, project, amount, status }) => (
+const DealRow = ({ client, project, amount }) => (
     <div className="flex items-center justify-between p-2 hover:bg-slate-800/50 rounded-lg transition-colors cursor-pointer group">
         <div className="flex items-center gap-3">
             <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center font-bold text-[10px] text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
