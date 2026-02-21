@@ -85,7 +85,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                       type="text" 
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.name ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium text-sm md:text-base`} 
+                      className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.name ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium text-sm md:text-base text-slate-900 dark:text-white`} 
                       placeholder={t.contact_page.form.name_ph} 
                     />
                     {errors.name && <p className="text-red-500 text-[10px] ml-1 font-bold">{errors.name}</p>}
@@ -98,7 +98,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                       type="email" 
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.email ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium text-sm md:text-base`} 
+                      className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.email ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium text-sm md:text-base text-slate-900 dark:text-white`} 
                       placeholder={t.contact_page.form.email_ph} 
                     />
                     {errors.email && <p className="text-red-500 text-[10px] ml-1 font-bold">{errors.email}</p>}
@@ -107,7 +107,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                 <div className="space-y-2">
                   <label className="block text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t.contact_page.form.type}</label>
                   <div className="relative">
-                     <select name="projectType" className="w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-medium appearance-none cursor-pointer text-sm md:text-base">
+                     <select name="projectType" className="w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-medium appearance-none cursor-pointer text-sm md:text-base text-slate-900 dark:text-white">
                        {[
                          { tr: "Özel Yazılım / CRM / ERP", en: "Custom Software / CRM / ERP" },
                          { tr: "n8n & İş Akışı Otomasyonu", en: "n8n & Workflow Automation" },
@@ -118,7 +118,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                          { tr: "Yapay Zeka / IoT", en: "AI / IoT" },
                          { tr: "Diğer", en: "Other" }
                        ].map((opt, i) => (
-                         <option key={i} value={opt[language] || opt['tr']}>{opt[language] || opt['tr']}</option>
+                         <option className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white" key={i} value={opt[language] || opt['tr']}>{opt[language] || opt['tr']}</option>
                        ))}
                      </select>
                      <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={18} />
@@ -132,7 +132,7 @@ export const Contact = ({ t, language, onShowToast }) => {
                     rows="4" 
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.message ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-medium resize-none text-sm md:text-base`} 
+                    className={`w-full px-4 py-3 md:py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 ${errors.message ? 'border-red-500' : 'border-slate-100 dark:border-slate-700'} focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-medium resize-none text-sm md:text-base text-slate-900 dark:text-white`} 
                     placeholder={t.contact_page.form.details_ph}
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-[10px] ml-1 font-bold">{errors.message}</p>}

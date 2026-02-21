@@ -202,10 +202,10 @@ export const ProjectCalculator = ({ isOpen, onClose, onShowToast, t }) => {
                         <div className="space-y-2">
                             <label className="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest ml-1">Tercih Edilen Platform</label>
                             <select name="platform" className="w-full px-5 py-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-500 outline-none transition-all font-bold text-slate-900 dark:text-white shadow-sm appearance-none cursor-pointer">
-                                <option>Web + Mobil</option>
-                                <option>Sadece Web</option>
-                                <option>Sadece Mobil</option>
-                                <option>Masaüstü / Diğer</option>
+                                <option className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">Web + Mobil</option>
+                                <option className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">Sadece Web</option>
+                                <option className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">Sadece Mobil</option>
+                                <option className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">Masaüstü / Diğer</option>
                             </select>
                         </div>
                     </div>

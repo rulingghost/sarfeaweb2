@@ -29,6 +29,7 @@ import { Contact } from './pages/Contact';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { JumboPresentation } from './pages/JumboPresentation';
+import { HospitalPresentation } from './pages/HospitalPresentation';
 
 function App() {
   const [activePage, setActivePage] = useState(() => {
@@ -178,6 +179,8 @@ function App() {
         );
       case 'jumbo':
         return <JumboPresentation setActivePage={setActivePage} />;
+      case 'hospital':
+        return <HospitalPresentation setActivePage={setActivePage} />;
       default:
           if (activePage.startsWith('blog-post-')) {
             const postId = activePage.replace('blog-post-', '');
