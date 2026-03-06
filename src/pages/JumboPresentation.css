@@ -266,3 +266,123 @@
   transform: scale(1.1);
   background: transparent;
 }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .slide {
+    padding: 6rem 1.5rem 5rem 1.5rem !important;
+  }
+  
+  .glass-card {
+    padding: 1.5rem !important;
+    border-radius: 20px !important;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr 1fr !important; /* Keep original structure */
+    gap: 0.5rem !important; /* Smaller gap */
+  }
+
+  .jumbo-presentation-session h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .jumbo-presentation-session h1[style*="3.5rem"] {
+    font-size: 1.75rem !important;
+  }
+
+  .jumbo-presentation-session h2 {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .jumbo-presentation-session p[style*="1.6rem"] {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .jumbo-presentation-session p {
+    font-size: 1rem !important;
+  }
+
+  .nav-controls {
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+  
+  .nav-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .speak-notes {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 5rem !important;
+    padding: 1.5rem !important;
+    font-size: 0.9rem !important;
+    max-width: none !important;
+  }
+
+  .tag {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.7rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .close-jumbo {
+    top: 1.5rem !important;
+    right: 1rem !important;
+    left: auto !important;
+  }
+
+  .close-jumbo img {
+    height: 30px !important;
+  }
+
+  .glow-orb {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(3, 1fr) !important; /* Keep 3 columns structure too */
+    gap: 0.5rem !important;
+  }
+
+  .nav-controls > div {
+    height: 44px !important;
+    padding: 0 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .glass-card > .grid-2 > div {
+    gap: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    align-items: center !important;
+  }
+
+  .glass-card > .grid-2 > div p {
+    font-size: 0.8rem !important; /* Even smaller for side-by-side */
+    line-height: 1.2 !important;
+  }
+  
+  .glass-card > .grid-2 > div > div:first-child {
+    padding: 0.4rem !important;
+    border-radius: 8px !important;
+  }
+
+  .glass-card > .grid-2 > div > div:first-child svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
