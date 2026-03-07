@@ -56,7 +56,14 @@ function loadDataFromStorage() {
 }
 
 function saveDataToStorage() {
-    localStorage.setItem('sarfea_belediye_items', JSON.stringify(allItems));
+    try {
+        localStorage.setItem('sarfea_belediye_items', JSON.stringify(allItems));
+    } catch (e) {
+        console.error("Storage Error:", e);
+        if (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+            alert("⚠️ Depolama Alanı Dolu! Çok fazla veya çok büyük görseller yüklendiği için bu görsel kaydedilemedi. Lütfen bazı öğeleri silin veya daha küçük görseller deneyin.");
+        }
+    }
 }
 
 /**
@@ -1029,7 +1036,7 @@ function renderItem(box, item) {
     `;
 }
 
-// Görsel Yükleme İşlemi (Base64)
+// Görsel Yükleme İşlemi (Görseli Küçülterek Kaydetme - LocalStorage Dostu)
 window.triggerImageUpload = function(id) {
     const input = document.createElement('input');
     input.type = 'file';
@@ -1040,17 +1047,48 @@ window.triggerImageUpload = function(id) {
         
         const reader = new FileReader();
         reader.onload = event => {
-            const base64Image = event.target.result;
-            // Öğeyi bulup güncelleyelim
-            const item = allItems.find(x => x.id === id);
-            if(item) {
-                item.image = base64Image;
-                saveDataToStorage(); // Kalıcı olarak kaydet
-                // Görsel eklendikten sonra paneli tazeleyelim:
-                if (currentView === 'Item' && selectedItem && selectedItem.id === id) {
-                    renderItem(document.getElementById('sidebarContent'), item);
+            const img = new Image();
+            img.onload = () => {
+                // Görseli max 1200px olacak şekilde oranla küçültelim (Performans ve Kota yönetimi için)
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+                const max_size = 1200;
+
+                if (width > height) {
+                    if (width > max_size) {
+                        height *= max_size / width;
+                        width = max_size;
+                    }
+                } else {
+                    if (height > max_size) {
+                        width *= max_size / height;
+                        height = max_size;
+                    }
                 }
-            }
+                
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // Kaliteyi %70'e düşürerek Base64 boyutunu devasa ölçüde (yaklaşık 1/10) küçültürüz
+                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                
+                const item = allItems.find(x => x.id === id);
+                if(item) {
+                    item.image = compressedBase64;
+                    // Eğer şu an bu item detayındaysak selectedItem'ı da tazeleyelim
+                    if(selectedItem && selectedItem.id === id) selectedItem.image = compressedBase64;
+                    
+                    saveDataToStorage(); 
+                    
+                    if (currentView === 'Item' && selectedItem && selectedItem.id === id) {
+                        renderItem(document.getElementById('sidebarContent'), item);
+                    }
+                }
+            };
+            img.src = event.target.result;
         };
         reader.readAsDataURL(file);
     };
