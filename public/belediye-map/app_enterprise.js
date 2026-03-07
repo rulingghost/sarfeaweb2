@@ -44,15 +44,57 @@ function getIconForType(type) {
     }
 }
 
+// Varsayılan Örnek Veriler (Yayına Alındığında Herkeste Görünecek Olanlar)
+const DEFAULT_SAMPLES = [
+    {
+        id: 'ITM-SAMP-1',
+        title: 'Yozgat Bulvarı Saha Kontrolü',
+        type: 'Elektrik Panosu',
+        belediyeId: 'kecioren',
+        belediyeName: 'Keçiören Belediyesi',
+        coords: [40.002350, 32.823990],
+        status: 'Aktif',
+        perf: 100,
+        kurulumTarihi: '2026-03-07',
+        image: '/belediye-map/assets/sample-survey.jpg'
+    },
+    {
+        id: 'ITM-SAMP-2',
+        title: 'Keçiören Merkez Denetim',
+        type: 'Menhol',
+        belediyeId: 'kecioren',
+        belediyeName: 'Keçiören Belediyesi',
+        coords: [40.003, 32.825],
+        status: 'Aktif',
+        perf: 95,
+        kurulumTarihi: '2026-03-07',
+        image: '/belediye-map/assets/sample-survey.jpg'
+    },
+    {
+        id: 'ITM-SAMP-3',
+        title: 'Bulvar Bölgesi Enerji Hattı',
+        type: 'Kabin',
+        belediyeId: 'kecioren',
+        belediyeName: 'Keçiören Belediyesi',
+        coords: [40.0019, 32.822],
+        status: 'Aktif',
+        perf: 98,
+        kurulumTarihi: '2026-03-07',
+        image: '/belediye-map/assets/sample-survey.jpg'
+    }
+];
+
 // Veritabanı gibi kullanıcının kaydettiği verileri LocalStorage'dan yüklemek isterseniz:
 function loadDataFromStorage() {
     const saved = localStorage.getItem('sarfea_belediye_items');
     if (saved) {
         try {
-            return JSON.parse(saved);
+            const data = JSON.parse(saved);
+            // Eğer kaydedilmiş veri varsa onu döndür, yoksa (ilk kez açılıyorsa) örnekleri ver
+            return data.length > 0 ? data : [...DEFAULT_SAMPLES];
         } catch(e) {}
     }
-    return [];
+    return [...DEFAULT_SAMPLES];
 }
 
 function saveDataToStorage() {
