@@ -12,6 +12,8 @@ export const CommandSearch = ({ isOpen, onClose, setActivePage, t }) => {
     { id: 'about', label: t.navbar.about, icon: Layout, category: 'Navigasyon' },
     { id: 'blog', label: t.navbar.blog, icon: BookOpen, category: 'Navigasyon' },
     { id: 'contact', label: t.navbar.contact, icon: Mail, category: 'Navigasyon' },
+    { id: 'harita', label: 'Global Harita (Jumbo)', icon: Layout, category: 'Haritalar' },
+    { id: 'belediye', label: 'Türkiye Belediyeleri', icon: Layout, category: 'Haritalar' },
     { id: 'calculator', label: 'Fiyat Hesapla', icon: Calculator, category: 'Araçlar', special: 'calculator' },
   ], [t]);
 
@@ -76,7 +78,7 @@ export const CommandSearch = ({ isOpen, onClose, setActivePage, t }) => {
             </div>
           ) : (
             <div className="space-y-4 py-2">
-              {['Navigasyon', 'Araçlar'].map(category => {
+              {['Navigasyon', 'Haritalar', 'Araçlar'].map(category => {
                 const categoryItems = filteredItems.filter(item => item.category === category);
                 if (categoryItems.length === 0) return null;
                 return (

@@ -31,6 +31,7 @@ import { BlogPost } from './pages/BlogPost';
 import { JumboPresentation } from './pages/JumboPresentation';
 import { HospitalPresentation } from './pages/HospitalPresentation';
 import { HaritaPresentation } from './pages/HaritaPresentation';
+import { BelediyePresentation } from './pages/BelediyePresentation';
 
 function App() {
   const [activePage, setActivePage] = useState(() => {
@@ -184,6 +185,8 @@ function App() {
         return <HospitalPresentation setActivePage={setActivePage} />;
       case 'harita':
         return <HaritaPresentation setActivePage={setActivePage} />;
+      case 'belediye':
+        return <BelediyePresentation setActivePage={setActivePage} />;
       default:
           if (activePage.startsWith('blog-post-')) {
             const postId = activePage.replace('blog-post-', '');
