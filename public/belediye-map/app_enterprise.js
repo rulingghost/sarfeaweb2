@@ -741,6 +741,26 @@ function getFakeMetrics(type) {
     return m;
 }
 
+// Görsel Büyütme (Lightbox) Fonksiyonu - Detayları Göstermek İçin Optimize Edildi
+window.openLightbox = function(src) {
+    if (!src) return;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = "position:fixed; inset:0; background:rgba(7, 10, 15, 0.98); z-index:100000; display:flex; align-items:center; justify-content:center; cursor:zoom-out; backdrop-filter:blur(15px); animation:v11FadeIn 0.3s;";
+    overlay.innerHTML = `
+        <div style="position:relative; width:92vw; height:92vh; display:flex; align-items:center; justify-content:center; pointer-events:none;">
+             <img src="${src}" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px; box-shadow:0 30px 100px rgba(0,0,0,0.8); pointer-events:auto; cursor:zoom-in; transition: transform 0.3s ease; animation:zoomSoft 0.4s cubic-bezier(0.16, 1, 0.3, 1);" 
+                  onclick="event.stopPropagation(); this.style.transform = (this.style.transform === 'scale(1.5)') ? 'scale(1)' : 'scale(1.5)'; this.style.cursor = (this.style.transform === 'scale(1.5)') ? 'zoom-out' : 'zoom-in';">
+             <div style="position:absolute; bottom: -40px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:12px; font-weight:600; font-family:sans-serif; pointer-events:none;">
+                <i class="fas fa-search-plus" style="margin-right:5px;"></i> Detaylar için fotoğrafa tıklayın
+             </div>
+             <i class="fas fa-times" style="position:absolute; top:10px; right:10px; color:white; font-size:28px; cursor:pointer; padding:15px; opacity:0.6; transition:opacity 0.2s; pointer-events:auto; z-index:10;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'" onclick="this.parentElement.parentElement.remove()"></i>
+        </div>
+        <style>@keyframes zoomSoft { from {transform: scale(0.95); opacity:0;} to {transform: scale(1); opacity:1;} }</style>
+    `;
+    overlay.onclick = () => overlay.remove();
+    document.body.appendChild(overlay);
+}
+
 function renderItem(box, item) {
     box.innerHTML = `
         <style>
@@ -986,12 +1006,12 @@ function renderItem(box, item) {
         
         <div class="v11-element-viewer">
             <!-- Ana Görsel Alanı -->
-            <div class="v11-element-image ${item.image ? 'has-image' : ''}" onclick="triggerImageUpload('${item.id}')" title="Görsel eklemek/değiştirmek için tıklayın">
+            <div class="v11-element-image ${item.image ? 'has-image' : ''}" onclick="${item.image ? `openLightbox('${item.image}')` : `triggerImageUpload('${item.id}')`}" title="${item.image ? 'Büyütmek için tıklayın' : 'Görsel yüklemek için tıklayın'}">
                 ${item.image 
                     ? `<img src="${item.image}" alt="Öğe Görseli" />
                        <div class="v11-image-overlay">
-                           <i class="fas fa-camera" style="font-size:32px;"></i>
-                           <span class="v11-overlay-text">Görseli Değiştir</span>
+                           <i class="fas fa-search-plus" style="font-size:32px;"></i>
+                           <span class="v11-overlay-text">Görseli Büyüt</span>
                        </div>` 
                     : `<i class="fas fa-image v11-upload-icon"></i>
                        <span class="v11-upload-text">Görsel Yüklemek İçin Tıklayın</span>`
@@ -1002,7 +1022,7 @@ function renderItem(box, item) {
             <div class="v11-action-row">
                 <button class="v11-action-btn btn-word" onclick="alert('Word formatında indiriliyor...')"><i class="fas fa-file-word"></i> Word</button>
                 <button class="v11-action-btn btn-pdf" onclick="alert('PDF formatında indiriliyor...')"><i class="fas fa-file-pdf"></i> PDF</button>
-                <button class="v11-action-btn btn-edit" onclick="alert('Düzenleme modu açılıyor...')"><i class="fas fa-pen"></i> Düzenle</button>
+                <button class="v11-action-btn btn-edit" onclick="triggerImageUpload('${item.id}')"><i class="fas fa-camera"></i> Düzenle</button>
                 <button class="v11-action-btn btn-location" onclick="zoomToItemCenter(${item.coords[0]}, ${item.coords[1]})"><i class="fas fa-map-marker-alt"></i> Konum</button>
             </div>
         </div>
