@@ -4,6 +4,7 @@
  */
 
 export const SEO_SERVICES = [
+  
   { id: "crm", tr: "CRM", en: "CRM", ar: "CRM" },
   { id: "erp", tr: "ERP", en: "ERP", ar: "ERP" },
   { id: "mobile-app", tr: "Mobil Uygulama Geliştirme", en: "Mobile App Development", ar: "تطوير تطبيقات الجوال" },
