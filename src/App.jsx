@@ -18,6 +18,7 @@ import { DynamicSEO } from './components/ui/DynamicSEO';
 import { BackgroundEffects } from './components/ui/BackgroundEffects';
 import { AdvancedCRMPreview } from './components/features/AdvancedCRMPreview';
 import { CommandSearch } from './components/ui/CommandSearch';
+import { DesktopPresentationGate } from './components/ui/DesktopPresentationGate';
 
 
 // Pages
@@ -180,13 +181,29 @@ function App() {
             </div>
         );
       case 'jumbo':
-        return <JumboPresentation setActivePage={setActivePage} />;
+        return (
+          <DesktopPresentationGate setActivePage={setActivePage}>
+            <JumboPresentation setActivePage={setActivePage} />
+          </DesktopPresentationGate>
+        );
       case 'hospital':
-        return <HospitalPresentation setActivePage={setActivePage} />;
+        return (
+          <DesktopPresentationGate setActivePage={setActivePage}>
+            <HospitalPresentation setActivePage={setActivePage} />
+          </DesktopPresentationGate>
+        );
       case 'harita':
-        return <HaritaPresentation setActivePage={setActivePage} />;
+        return (
+          <DesktopPresentationGate setActivePage={setActivePage}>
+            <HaritaPresentation setActivePage={setActivePage} />
+          </DesktopPresentationGate>
+        );
       case 'belediye':
-        return <BelediyePresentation setActivePage={setActivePage} />;
+        return (
+          <DesktopPresentationGate setActivePage={setActivePage}>
+            <BelediyePresentation setActivePage={setActivePage} />
+          </DesktopPresentationGate>
+        );
       default:
           if (activePage.startsWith('blog-post-')) {
             const postId = activePage.replace('blog-post-', '');
